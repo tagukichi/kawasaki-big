@@ -1391,13 +1391,14 @@ address {
 }
 
 /* デスクトップ: 4カラム化（ブランド | MENU | RESERVATION | キービジュアル）
-   キービジュアルの実寸を維持するため、左3カラムを少しずつ詰めて
-   右カラムの fr を増やす */
+   - MENU と RESERVATION は上端揃え
+   - キービジュアルは縦中央揃え（align-self で個別指定）
+   - RESERVATION 列は「予約のキャンセル」が改行しないよう少し広めに確保 */
 @media (min-width: 1024px) {
   .l-footer__inner {
-    grid-template-columns: .95fr .55fr .55fr 2.55fr;
+    grid-template-columns: .9fr .55fr .7fr 2.4fr;
     gap: 2rem;
-    align-items: center;
+    align-items: start;
   }
 }
 
@@ -1511,6 +1512,7 @@ address {
   font-size: .9rem;
   letter-spacing: .04em;
   color: var(--color-footer-muted);
+  white-space: nowrap;
   transition: color var(--dur-fast) var(--ease-out);
 }
 
