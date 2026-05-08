@@ -1392,8 +1392,8 @@ address {
 
 @media (min-width: 1024px) {
   .l-footer__inner {
-    grid-template-columns: 1.1fr .9fr 1.8fr;
-    gap: 3rem;
+    grid-template-columns: 1fr .7fr 2.3fr;
+    gap: 2.5rem;
     align-items: center;
   }
 }
@@ -1523,7 +1523,7 @@ address {
 
 .l-footer__keyvisual img {
   width: 100%;
-  max-width: 720px;
+  max-width: 880px;
   height: auto;
   display: block;
   margin-inline: auto;
