@@ -61,7 +61,10 @@
       gap: 1.6rem;
     }
     @media (min-width: 760px) {
-      .grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+    }
+    @media (min-width: 1080px) {
+      .grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
     }
     .card {
       background: #fff;
@@ -141,6 +144,9 @@
     .card--v1 .card__label { background: #1a2333; color: #d4a574; }
     .card--v1 h2 { color: #1a2333; }
     .card--v1 .card__sub { color: #8a6d3a; }
+    .card--v3 .card__label { background: #fff; color: #b88542; border: 1px solid #b88542; }
+    .card--v3 h2 { color: #1a1a1a; }
+    .card--v3 .card__sub { color: #b88542; }
     .footnote {
       margin-top: 2.5rem;
       padding: 1.2rem 1.4rem;
@@ -187,6 +193,19 @@
           <li>ボタン・カードの境界が明確</li>
         </ul>
         <a class="btn" href="site2/index.html">案2を開く</a>
+      </article>
+
+      <article class="card card--v3">
+        <span class="card__label">/site3/</span>
+        <h2>案3：白基調エディトリアル</h2>
+        <p class="card__sub">純白背景・琥珀アクセント</p>
+        <p>案1の上品な世界観を引き継ぎつつ、全体を白基調に反転。FVは画像に薄黒いブラーをかけず、ヘッダーは画像と分離した白いバーで配置。</p>
+        <ul>
+          <li>純白の背景と細い罫線で明るく上質に</li>
+          <li>FV画像にダーク被せなし／白カードで本文を表示</li>
+          <li>フッターは既存サイトの大型タイポを継承（ダーク維持）</li>
+        </ul>
+        <a class="btn" href="site3/index.html">案3を開く</a>
       </article>
 
     </div>
