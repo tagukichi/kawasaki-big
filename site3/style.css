@@ -860,112 +860,239 @@ address {
 }
 
 /* =========================================================================
+   BRAND ARTWORK
+   既存サイトのキービジュアル（カプセル＆サウナ 川崎ビッグ + キャラクター）を
+   そのまま見せるシンプルなブロック
+   ========================================================================= */
+.s-brand {
+  background: var(--color-bg);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.s-brand__figure {
+  margin: 0;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.s-brand__figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================================
    RESERVATION BANNER
-   白基調に合わせて、温かいクリーム背景＋アンバーの細枠で再構成
+   3カラムのバナーカード構成（ご予約 | ベストレート保証 | 本文＋CTA）
    ========================================================================= */
 .s-reservation {
   position: relative;
-  padding: clamp(4rem, 9vw, 6rem) 0;
-  text-align: center;
-  overflow: hidden;
-  isolation: isolate;
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
   background: var(--color-bg-alt);
 }
 
-.s-reservation__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse at 25% 30%, rgba(44, 74, 110, .10), transparent 55%),
-    radial-gradient(ellipse at 80% 85%, rgba(44, 74, 110, .08), transparent 55%);
-}
+.s-reservation__bg { display: none; }
 
-.s-reservation__bg::after {
-  content: "";
-  position: absolute;
-  inset: 1.5rem;
-  border: 1px solid var(--color-border-strong);
+.c-reserve-banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--color-accent);
+  color: #fff;
   border-radius: var(--radius-md);
-  pointer-events: none;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-accent-deep);
 }
 
-@media (max-width: 600px) {
-  .s-reservation__bg::after { inset: 1rem; }
+@media (min-width: 760px) {
+  .c-reserve-banner {
+    grid-template-columns: auto auto 1fr;
+    align-items: stretch;
+  }
 }
 
-.s-reservation__inner {
+/* Left: ご予約 + Reservation */
+.c-reserve-banner__label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  justify-content: center;
+  gap: .25rem;
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  background: rgba(255, 255, 255, .04);
 }
 
-.s-reservation__en {
-  font-family: var(--font-en);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1rem, 1.7vw, 1.3rem);
-  letter-spacing: .35em;
-  color: var(--color-accent);
+@media (min-width: 760px) {
+  .c-reserve-banner__label {
+    padding: 1.5rem 2.2rem;
+    border-right: 1px solid rgba(255, 255, 255, .25);
+  }
 }
 
-.s-reservation__title {
+.c-reserve-banner__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-bottom: .2rem;
+}
+
+.c-reserve-banner__label-jp {
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: clamp(1.6rem, 3.6vw, 2.5rem);
+  font-size: 1.4rem;
   letter-spacing: .08em;
-  line-height: 1.6;
-  color: var(--color-text);
+  color: #fff;
+  line-height: 1.2;
 }
 
-.s-reservation__sub {
-  font-size: clamp(.95rem, 1.3vw, 1.05rem);
-  letter-spacing: .08em;
-  color: var(--color-text-muted);
-  margin-bottom: 1rem;
+.c-reserve-banner__label-en {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: .8rem;
+  letter-spacing: .25em;
+  color: rgba(255, 255, 255, .75);
 }
 
-.s-reservation__cta {
-  margin-top: .5rem;
+/* Center: 表彰風シール + ベストレート保証 */
+.c-reserve-banner__seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  padding: 1rem 1.4rem;
+  background: var(--color-accent-deep);
+  border-top: 1px solid rgba(255, 255, 255, .1);
 }
 
+@media (min-width: 760px) {
+  .c-reserve-banner__seal {
+    border-top: 0;
+    border-right: 1px solid rgba(255, 255, 255, .25);
+    padding: 1.3rem 1.8rem;
+  }
+}
+
+.c-reserve-banner__medal {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-reserve-banner__seal-text {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  letter-spacing: .04em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Right: 本文 + CTA */
+.c-reserve-banner__body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: .8rem;
+  padding: 1.2rem 1.4rem 1.4rem;
+}
+
+@media (min-width: 760px) {
+  .c-reserve-banner__body {
+    padding: 1.4rem 1.8rem;
+  }
+}
+
+.c-reserve-banner__desc {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(.95rem, 1.5vw, 1.05rem);
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+}
+
+.c-reserve-banner__desc strong {
+  display: inline;
+  font-weight: 900;
+  color: #ffd267;
+  font-size: 1.15em;
+  border-bottom: 2px solid #ffd267;
+  padding: 0 .15em;
+}
+
+.c-reserve-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  background: #fff;
+  color: var(--color-accent-deep);
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  letter-spacing: .04em;
+  padding: .9rem 1.6rem;
+  border-radius: var(--radius-sm);
+  border: 2px solid #fff;
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+
+.c-reserve-banner__cta span {
+  font-size: 1.3em;
+  margin-left: .2rem;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.c-reserve-banner__cta:hover,
+.c-reserve-banner__cta:focus-visible {
+  background: var(--color-accent-deep);
+  color: #fff;
+  border-color: var(--color-accent-deep);
+}
+
+.c-reserve-banner__cta:hover span {
+  transform: translateX(3px);
+}
+
+/* Sublinks under the banner */
 .s-reservation__sublinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem 2rem;
+  gap: 1rem 2rem;
   justify-content: center;
   margin-top: 1.5rem;
-  font-family: var(--font-en);
-  font-size: .8rem;
-  letter-spacing: .25em;
-  color: var(--color-text-muted);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .92rem;
+  letter-spacing: .04em;
+  color: var(--color-text);
 }
 
 .s-reservation__sublinks a {
   position: relative;
-  padding: 0 .2rem;
+  padding: .3rem .4rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
 }
 
-.s-reservation__sublinks a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--dur-fast) var(--ease-out);
-}
-
-.s-reservation__sublinks a:hover {
+.s-reservation__sublinks a::before {
+  content: "›";
   color: var(--color-accent);
+  margin-right: .4rem;
 }
 
-.s-reservation__sublinks a:hover::after {
-  transform: scaleX(1);
+.s-reservation__sublinks a:hover,
+.s-reservation__sublinks a:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 /* =========================================================================
