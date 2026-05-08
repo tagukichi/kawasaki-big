@@ -1374,32 +1374,7 @@ address {
 }
 
 .l-footer__inner,
-.l-footer__bottom,
-.l-footer__keyvisual { position: relative; z-index: 1; }
-
-/* キービジュアル（画像差し替え用フレーム） */
-.l-footer__keyvisual {
-  padding-bottom: clamp(2rem, 5vw, 3rem);
-}
-
-.l-footer__keyvisual-frame {
-  margin: 0;
-  max-width: 720px;
-  margin-inline: auto;
-  background: rgba(255, 255, 255, .04);
-  border: 1px solid rgba(255, 255, 255, .12);
-  border-radius: var(--radius-md);
-  padding: 1.4rem;
-  text-align: center;
-}
-
-.l-footer__keyvisual-frame img {
-  width: 100%;
-  max-width: 560px;
-  height: auto;
-  display: block;
-  margin-inline: auto;
-}
+.l-footer__bottom { position: relative; z-index: 1; }
 
 .l-footer__inner {
   display: grid;
@@ -1408,13 +1383,22 @@ address {
   padding-bottom: 3rem;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 760px) {
   .l-footer__inner {
-    grid-template-columns: 1.1fr 2fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
 }
 
+@media (min-width: 1024px) {
+  .l-footer__inner {
+    grid-template-columns: 1.4fr 1fr 1.3fr;
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+/* 左：ブランド + 所在地 + SNS */
 .l-footer__brand {
   position: relative;
 }
@@ -1434,84 +1418,40 @@ address {
   font-size: .85rem;
   letter-spacing: .3em;
   color: var(--color-accent-bright);
-  margin-bottom: 1.2rem;
+  margin-bottom: .8rem;
 }
 
 .l-footer__lead {
   font-size: .9rem;
   letter-spacing: .08em;
   color: var(--color-footer-muted);
-}
-
-.l-footer__cols {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-@media (min-width: 751px) {
-  .l-footer__cols {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-.l-footer__col-title {
-  font-family: var(--font-en);
-  font-style: italic;
-  font-weight: 500;
-  font-size: .85rem;
-  letter-spacing: .3em;
-  color: var(--color-accent-bright);
-  margin-bottom: 1.2rem;
-  padding-bottom: .8rem;
-  border-bottom: 1px solid rgba(182, 192, 207, .25);
+  margin-bottom: 1.4rem;
 }
 
 .l-footer__addr {
-  font-size: .85rem;
-  line-height: 1.9;
+  font-size: .9rem;
+  line-height: 1.95;
   color: var(--color-footer-muted);
   letter-spacing: .04em;
+  margin-bottom: 1.4rem;
 }
 
 .l-footer__addr a {
   color: var(--color-footer-text);
   display: inline-block;
-  margin-top: .4rem;
+  margin-top: .3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
 }
 
 .l-footer__addr a:hover {
   color: var(--color-accent-bright);
-}
-
-.l-footer__links {
-  display: flex;
-  flex-direction: column;
-  gap: .7rem;
-}
-
-.l-footer__links a {
-  font-size: .85rem;
-  letter-spacing: .06em;
-  color: var(--color-footer-muted);
-  transition: color var(--dur-fast) var(--ease-out);
-}
-
-.l-footer__links a::before {
-  content: "—";
-  color: var(--color-accent-bright);
-  margin-right: 8px;
-  opacity: .6;
-}
-
-.l-footer__links a:hover {
-  color: var(--color-accent-bright);
+  border-bottom-color: var(--color-accent-bright);
 }
 
 .l-footer__sns {
   display: flex;
   gap: .8rem;
+  margin-top: .2rem;
 }
 
 .l-footer__sns-link {
@@ -1532,6 +1472,61 @@ address {
   background: var(--color-accent);
   color: var(--color-footer-bg);
   border-color: var(--color-accent);
+}
+
+/* 中：MENU */
+.l-footer__menu { position: relative; }
+
+.l-footer__col-title {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-weight: 500;
+  font-size: .85rem;
+  letter-spacing: .3em;
+  color: var(--color-accent-bright);
+  margin-bottom: 1.2rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid rgba(182, 192, 207, .25);
+}
+
+.l-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.l-footer__links a {
+  font-size: .9rem;
+  letter-spacing: .04em;
+  color: var(--color-footer-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.l-footer__links a::before {
+  content: "—";
+  color: var(--color-accent-bright);
+  margin-right: 8px;
+  opacity: .6;
+}
+
+.l-footer__links a:hover {
+  color: var(--color-accent-bright);
+}
+
+/* 右：キービジュアル */
+.l-footer__keyvisual {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  align-self: center;
+}
+
+.l-footer__keyvisual img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
 }
 
 .l-footer__bottom {
