@@ -1392,9 +1392,9 @@ address {
 
 @media (min-width: 1024px) {
   .l-footer__inner {
-    grid-template-columns: 1.4fr 1fr 1.3fr;
+    grid-template-columns: 1.1fr .9fr 1.8fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
   }
 }
 
@@ -1451,7 +1451,7 @@ address {
 .l-footer__sns {
   display: flex;
   gap: .8rem;
-  margin-top: .2rem;
+  margin-top: 1.8rem;
 }
 
 .l-footer__sns-link {
@@ -1513,7 +1513,7 @@ address {
   color: var(--color-accent-bright);
 }
 
-/* 右：キービジュアル */
+/* 右：キービジュアル — 既存サイト同様、大きく見せる */
 .l-footer__keyvisual {
   margin: 0;
   padding: 0;
@@ -1523,10 +1523,16 @@ address {
 
 .l-footer__keyvisual img {
   width: 100%;
-  max-width: 480px;
+  max-width: 720px;
   height: auto;
   display: block;
   margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .l-footer__keyvisual img {
+    max-width: none;
+  }
 }
 
 .l-footer__bottom {
