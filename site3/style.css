@@ -1385,16 +1385,27 @@ address {
 
 @media (min-width: 760px) {
   .l-footer__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
   }
 }
 
+/* デスクトップ: 4カラム化（ブランド | MENU | RESERVATION | キービジュアル）
+   キービジュアルの実寸を維持するため、左3カラムを少しずつ詰めて
+   右カラムの fr を増やす */
 @media (min-width: 1024px) {
   .l-footer__inner {
-    grid-template-columns: 1fr .7fr 2.3fr;
-    gap: 2.5rem;
+    grid-template-columns: .95fr .55fr .55fr 2.55fr;
+    gap: 2rem;
     align-items: center;
+  }
+}
+
+/* タブレット時はキービジュアルを別行に */
+@media (min-width: 760px) and (max-width: 1023px) {
+  .l-footer__keyvisual {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
   }
 }
 
@@ -1474,8 +1485,9 @@ address {
   border-color: var(--color-accent);
 }
 
-/* 中：MENU */
-.l-footer__menu { position: relative; }
+/* 中：MENU / RESERVATION（同じ見た目） */
+.l-footer__menu,
+.l-footer__reserve { position: relative; }
 
 .l-footer__col-title {
   font-family: var(--font-en);
