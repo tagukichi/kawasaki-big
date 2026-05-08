@@ -2563,10 +2563,12 @@ address {
   transform: scale(1.06);
 }
 
+/* キャプションは画像の上に直接乗せる（ブラー/暗い被せは入れない）。
+   白文字＋text-shadow で可読性を確保 */
 .c-facility-tile__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(13,27,42,.85) 100%);
+  background: none;
   display: flex;
   align-items: flex-end;
   padding: 1.4rem;
@@ -2582,8 +2584,9 @@ address {
   font-style: italic;
   font-size: .8rem;
   letter-spacing: .3em;
-  color: var(--color-accent);
+  color: var(--color-accent-bright);
   margin-bottom: .25rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .6);
 }
 
 .c-facility-tile__title {
@@ -2591,7 +2594,9 @@ address {
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: .08em;
-  color: var(--color-text);
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .7),
+               0 0 4px rgba(0, 0, 0, .35);
 }
 
 /* =========================================================================
