@@ -10,20 +10,20 @@
    Tokens
    ----------------------------- */
 :root {
-  /* Colors */
+  /* Colors — 銭湯ネイビー基調（大衆サウナの清潔感） */
   --color-bg: #ffffff;
-  --color-bg-alt: #f7f3ec;
-  --color-bg-soft: #faf7f1;
+  --color-bg-alt: #f1f3f6;       /* 紺寄りの淡いグレー */
+  --color-bg-soft: #f7f8fa;
   --color-text: #1a1a1a;
-  --color-text-muted: #6b655d;
-  --color-accent: #b88542;
-  --color-accent-bright: #d4a574;
-  --color-accent-deep: #8a5e2d;
+  --color-text-muted: #5a6573;
+  --color-accent: #2c4a6e;       /* 深い紺 */
+  --color-accent-bright: #4a6a92; /* 明るい紺 */
+  --color-accent-deep: #1c3754;   /* 最深紺 */
   --color-border: rgba(26, 26, 26, 0.1);
-  --color-border-strong: rgba(184, 133, 66, 0.45);
-  --color-footer-bg: #14202e;
-  --color-footer-text: #f5f1eb;
-  --color-footer-muted: #b8b0a4;
+  --color-border-strong: rgba(44, 74, 110, 0.4);
+  --color-footer-bg: #1c3754;     /* フッターも紺系で統一 */
+  --color-footer-text: #f5f7fa;
+  --color-footer-muted: #b6c0cf;
 
   /* Fonts */
   --font-heading: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
@@ -273,7 +273,7 @@ address {
 .c-btn--outline:focus-visible {
   border-color: var(--color-accent);
   color: var(--color-accent-deep);
-  background: rgba(184, 133, 66, .06);
+  background: rgba(44, 74, 110, .05);
 }
 
 .c-btn--lg {
@@ -618,8 +618,16 @@ address {
   100% { opacity: 0; transform: scale(1.05); }
 }
 
-/* オーバーレイは未使用（要件で削除）。HTML に要素は残るが何も描画しない */
-.s-hero__overlay { display: none; }
+/* オーバーレイは "ごく薄く" 入れて文字の可読性を確保（ブラーは入れない） */
+.s-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg,
+    rgba(20, 32, 46, .12) 0%,
+    rgba(20, 32, 46, .22) 60%,
+    rgba(20, 32, 46, .32) 100%);
+}
 
 /* テキスト＋CTAをそのまま画像の中央に配置（白カードなし・暗いブラーなし） */
 .s-hero__inner {
@@ -635,7 +643,8 @@ address {
   font-weight: 500;
   font-size: clamp(1.05rem, 1.8vw, 1.4rem);
   letter-spacing: .35em;
-  color: var(--color-accent-bright);
+  color: #fff;
+  opacity: .92;
   margin-bottom: 1.4rem;
   text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
 }
@@ -868,8 +877,8 @@ address {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse at 25% 30%, rgba(184, 133, 66, .14), transparent 55%),
-    radial-gradient(ellipse at 80% 85%, rgba(184, 133, 66, .10), transparent 55%);
+    radial-gradient(ellipse at 25% 30%, rgba(44, 74, 110, .10), transparent 55%),
+    radial-gradient(ellipse at 80% 85%, rgba(44, 74, 110, .08), transparent 55%);
 }
 
 .s-reservation__bg::after {
@@ -1393,7 +1402,7 @@ address {
   font-weight: 500;
   font-size: clamp(4rem, 18vw, 14rem);
   letter-spacing: .05em;
-  color: rgba(212, 165, 116, .07);
+  color: rgba(74, 106, 146, .08);
   white-space: nowrap;
   pointer-events: none;
   line-height: 1;
@@ -1466,7 +1475,7 @@ address {
   color: var(--color-accent-bright);
   margin-bottom: 1.2rem;
   padding-bottom: .8rem;
-  border-bottom: 1px solid rgba(212, 165, 116, .25);
+  border-bottom: 1px solid rgba(182, 192, 207, .25);
 }
 
 .l-footer__addr {
@@ -1521,7 +1530,7 @@ address {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(212, 165, 116, .4);
+  border: 1px solid rgba(182, 192, 207, .4);
   border-radius: 50%;
   color: var(--color-footer-text);
   transition: background var(--dur-fast) var(--ease-out),
@@ -1536,7 +1545,7 @@ address {
 }
 
 .l-footer__bottom {
-  border-top: 1px solid rgba(212, 165, 116, .2);
+  border-top: 1px solid rgba(182, 192, 207, .2);
   padding: 1.6rem 0;
 }
 
@@ -1942,7 +1951,7 @@ address {
 .c-bath-card__note {
   margin-top: 1rem;
   padding: .7rem .9rem;
-  background: rgba(212, 165, 116, .08);
+  background: rgba(44, 74, 110, .06);
   border-left: 2px solid var(--color-accent);
   font-size: .78rem;
   letter-spacing: .04em;
@@ -2228,7 +2237,7 @@ address {
 }
 
 .c-price-table thead th {
-  background: rgba(212, 165, 116, .08);
+  background: rgba(44, 74, 110, .06);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: .82rem;
@@ -2252,7 +2261,7 @@ address {
 }
 
 .c-price-table tbody tr:hover {
-  background: rgba(212, 165, 116, .04);
+  background: rgba(44, 74, 110, .04);
 }
 
 .c-price-table .c-price-table__plan {
@@ -2728,7 +2737,7 @@ address {
 .c-form__textarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  background: rgba(212, 165, 116, .04);
+  background: rgba(44, 74, 110, .04);
 }
 
 .c-form__textarea {
