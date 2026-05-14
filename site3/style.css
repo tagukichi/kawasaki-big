@@ -1138,7 +1138,7 @@ address {
 .s-restaurant__figure {
   position: relative;
   margin: 0;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: var(--radius-md);
 }
@@ -1827,9 +1827,23 @@ address {
   color: #fff;
 }
 
-/* =========================================================================
-   ARTICLE (お知らせ詳細 / WP single.php 相当)
-   ========================================================================= */
+/* ===== 画像の表示方針：基本は contain（切れずに全体表示） =====
+   ヒーロー（背景）や facility-tile（オーバーレイ文字あり）は cover 維持 */
+.c-card__media,
+.s-restaurant__figure,
+.c-bath-card__media,
+.c-banner__media,
+.c-food-card__figure {
+  background: var(--color-bg-alt);
+}
+
+.c-card__media img,
+.s-restaurant__figure img,
+.c-bath-card__media img,
+.c-banner__media img,
+.c-food-card__figure img {
+  object-fit: contain !important;
+}
 .s-article {
   padding: clamp(3rem, 7vw, 5rem) 0;
   background: var(--color-bg);
@@ -2273,7 +2287,7 @@ address {
 .c-food-card__figure {
   position: relative;
   margin: 0;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: var(--radius-md);
 }
