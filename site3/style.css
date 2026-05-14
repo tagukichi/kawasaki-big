@@ -1122,20 +1122,13 @@ address {
 .s-restaurant__list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.6rem;
+  gap: 1.8rem;
 }
 
 @media (min-width: 751px) {
   .s-restaurant__list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-}
-
-@media (min-width: 1100px) {
-  .s-restaurant__list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.6rem;
   }
 }
 
@@ -1145,12 +1138,22 @@ address {
   flex-direction: column;
 }
 
+/* TOPページのレストラン3カードは大きく見せる：
+   横長・縦長の写真が混在するため、カードが画像のナチュラル比に合わせて伸縮
+   （カード高さは不揃いになる代わりに、各画像が切れずに大きく表示される） */
 .s-restaurant__figure {
   position: relative;
   margin: 0;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
+}
+
+.s-restaurant__figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease-out);
 }
 
 .s-restaurant__figure img {
@@ -1838,9 +1841,9 @@ address {
 }
 
 /* ===== 画像の表示方針：基本は contain（切れずに全体表示） =====
-   ヒーロー（背景）や facility-tile（オーバーレイ文字あり）は cover 維持 */
+   ヒーロー（背景）や facility-tile（オーバーレイ文字あり）は cover 維持
+   s-restaurant は別ルールで「大きく表示」（下記） */
 .c-card__media,
-.s-restaurant__figure,
 .c-bath-card__media,
 .c-banner__media,
 .c-food-card__figure {
@@ -1848,7 +1851,6 @@ address {
 }
 
 .c-card__media img,
-.s-restaurant__figure img,
 .c-bath-card__media img,
 .c-banner__media img,
 .c-food-card__figure img {
