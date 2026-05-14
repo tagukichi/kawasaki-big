@@ -2251,6 +2251,17 @@ address {
   border: 1px solid var(--color-border);
 }
 
+/* virus.jpg のような 1枚どーんと表示するバリアント */
+.c-info-banner--full {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.c-info-banner--full img {
+  width: 100%;
+  height: auto;
+}
+
 /* =========================================================================
    NOTES BOX
    ========================================================================= */
