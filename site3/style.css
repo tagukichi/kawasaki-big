@@ -2654,25 +2654,19 @@ address {
   position: relative;
   max-width: 920px;
   margin-inline: auto;
-  padding-left: 1.4rem;
+  padding-left: 0;
 }
 
-.c-floor-timeline::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--color-accent) 8%, var(--color-accent) 92%, transparent);
-}
+/* タイムラインのドット・縦線は不要のため非表示 */
+.c-floor-timeline::before { display: none; }
+.c-floor-row::before { display: none; }
 
 .c-floor-row {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
   gap: .8rem;
-  padding: 1.6rem 0 1.6rem 1.6rem;
+  padding: 1.6rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -2680,26 +2674,32 @@ address {
   .c-floor-row {
     grid-template-columns: 220px 1fr;
     gap: 2rem;
-    padding: 2rem 0 2rem 2rem;
+    padding: 2rem 0;
   }
 }
 
 .c-floor-row:last-child { border-bottom: 0; }
 
-.c-floor-row::before {
-  content: "";
-  position: absolute;
-  left: -5px;
-  top: 2.1rem;
-  width: 9px;
-  height: 9px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--color-bg);
+/* 各フロアのテキスト下に画像を表示 */
+.c-floor-row__media {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
-.s-block--alt .c-floor-row::before {
-  box-shadow: 0 0 0 4px var(--color-bg-alt);
+@media (min-width: 600px) {
+  .c-floor-row__media--multi {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.c-floor-row__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 }
 
 .c-floor-row__label {
