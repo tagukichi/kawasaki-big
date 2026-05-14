@@ -2263,6 +2263,38 @@ address {
 }
 
 /* =========================================================================
+   POLICY (プライバシーポリシー / 個人情報保護方針)
+   ========================================================================= */
+.c-policy {
+  max-width: 880px;
+  margin-inline: auto;
+  font-size: 1rem;
+  line-height: 1.95;
+  letter-spacing: .02em;
+  color: var(--color-text);
+}
+
+.c-policy > * + * {
+  margin-top: 1rem;
+}
+
+.c-policy h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: .04em;
+  color: var(--color-text);
+  margin-top: 2rem;
+  margin-bottom: .6rem;
+  padding-left: .9rem;
+  border-left: 3px solid var(--color-accent);
+}
+
+.c-policy p {
+  margin: 0;
+}
+
+/* =========================================================================
    NOTES BOX
    ========================================================================= */
 .c-notes {
