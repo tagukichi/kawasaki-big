@@ -1156,13 +1156,6 @@ address {
   transition: transform var(--dur-slow) var(--ease-out);
 }
 
-.s-restaurant__figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--dur-slow) var(--ease-out);
-}
-
 .s-restaurant__item:hover .s-restaurant__figure img {
   transform: scale(1.05);
 }
@@ -1841,19 +1834,17 @@ address {
 }
 
 /* ===== 画像の表示方針：基本は contain（切れずに全体表示） =====
-   ヒーロー（背景）や facility-tile（オーバーレイ文字あり）は cover 維持
-   s-restaurant は別ルールで「大きく表示」（下記） */
+   s-restaurant / c-food-card は別ルールでナチュラル比のフルワイド表示
+   facility-tile はオーバーレイ文字があるため cover 維持 */
 .c-card__media,
 .c-bath-card__media,
-.c-banner__media,
-.c-food-card__figure {
+.c-banner__media {
   background: var(--color-bg-alt);
 }
 
 .c-card__media img,
 .c-bath-card__media img,
-.c-banner__media img,
-.c-food-card__figure img {
+.c-banner__media img {
   object-fit: contain !important;
 }
 .s-article {
@@ -2296,18 +2287,22 @@ address {
   flex-direction: column;
 }
 
+/* レストランページの料理カード：画像を切らずに最大幅で表示
+   写真は縦長・横長まちまちなので、aspect-ratio を撤廃し
+   ナチュラル比でフルワイド表示する */
 .c-food-card__figure {
   position: relative;
   margin: 0;
-  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: var(--radius-md);
+  background: var(--color-bg-alt);
 }
 
 .c-food-card__figure img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
+  object-fit: unset !important;
   transition: transform var(--dur-slow) var(--ease-out);
 }
 
