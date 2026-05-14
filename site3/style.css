@@ -2251,9 +2251,9 @@ address {
   border: 1px solid var(--color-border);
 }
 
-/* virus.jpg のような 1枚どーんと表示するバリアント */
+/* virus.jpg のような 1枚センター配置するバリアント（約60%幅） */
 .c-info-banner--full {
-  max-width: 1080px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
