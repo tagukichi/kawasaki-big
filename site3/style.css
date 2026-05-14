@@ -2216,6 +2216,42 @@ address {
 }
 
 /* =========================================================================
+   INFO BANNERS（既存サイトのお知らせ画像 等）
+   ========================================================================= */
+.c-info-banners {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+@media (min-width: 751px) {
+  .c-info-banners {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .c-info-banners {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.c-info-banner {
+  margin: 0;
+}
+
+.c-info-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+/* =========================================================================
    NOTES BOX
    ========================================================================= */
 .c-notes {
