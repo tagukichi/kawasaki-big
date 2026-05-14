@@ -28,7 +28,7 @@
   /* Fonts */
   --font-heading: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
   --font-body: 'Noto Sans JP', sans-serif;
-  --font-en: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-en: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
 
   /* Layout */
   --container-max: 1240px;
@@ -186,7 +186,7 @@ address {
    ----------------------------- */
 .c-eyebrow {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   letter-spacing: .25em;
@@ -642,7 +642,7 @@ address {
 
 .s-hero__en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: clamp(1.05rem, 1.8vw, 1.4rem);
   letter-spacing: .35em;
@@ -728,7 +728,7 @@ address {
   background: rgba(0, 0, 0, .35);
   padding: 6px 14px;
   border-radius: 999px;
-  font-style: italic;
+  font-style: normal;
   text-shadow: none;
 }
 
@@ -788,7 +788,7 @@ address {
 
 .s-info__label {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .75rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -1034,7 +1034,7 @@ address {
 .c-card__num {
   display: inline-block;
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.6rem;
   color: var(--color-accent);
   margin-bottom: .4rem;
@@ -1042,7 +1042,7 @@ address {
 
 .c-card__en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .85rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -1072,7 +1072,7 @@ address {
   font-size: .82rem;
   letter-spacing: .25em;
   color: var(--color-accent);
-  font-style: italic;
+  font-style: normal;
 }
 
 .c-card__arrow {
@@ -1184,7 +1184,7 @@ address {
 
 .s-restaurant__num {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.4rem;
   color: var(--color-accent);
   flex-shrink: 0;
@@ -1317,7 +1317,7 @@ address {
   font-size: .8rem;
   letter-spacing: .25em;
   color: var(--color-accent);
-  font-style: italic;
+  font-style: normal;
 }
 
 .s-access__row dd {
@@ -1365,7 +1365,7 @@ address {
   transform: translateX(-50%);
   z-index: 0;
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: clamp(4rem, 18vw, 14rem);
   letter-spacing: .05em;
@@ -1428,7 +1428,7 @@ address {
 
 .l-footer__logo-en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .85rem;
   letter-spacing: .3em;
   color: var(--color-accent-bright);
@@ -1494,7 +1494,7 @@ address {
 
 .l-footer__col-title {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: .85rem;
   letter-spacing: .3em;
@@ -1758,7 +1758,7 @@ address {
 
 .s-page-hero__en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: clamp(1rem, 1.6vw, 1.25rem);
   letter-spacing: .35em;
@@ -1800,7 +1800,7 @@ address {
   border-radius: 999px;
   padding: 6px 16px;
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .8rem;
   letter-spacing: .2em;
   color: rgba(255, 255, 255, .85);
@@ -2090,7 +2090,7 @@ address {
 
 .c-bath-card__num {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.1rem;
   letter-spacing: .15em;
   color: var(--color-accent);
@@ -2110,7 +2110,7 @@ address {
   display: inline-block;
   margin-top: .3rem;
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .85rem;
   letter-spacing: .1em;
   color: var(--color-accent);
@@ -2192,7 +2192,7 @@ address {
 
 .c-banner__en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .9rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -2280,7 +2280,7 @@ address {
 
 .c-notes__title {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .85rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -2368,7 +2368,7 @@ address {
 
 .c-food-card__num {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.3rem;
   color: var(--color-accent);
   flex-shrink: 0;
@@ -2421,7 +2421,7 @@ address {
 
 .c-drink-list__en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.1rem;
   letter-spacing: .2em;
   color: var(--color-accent);
@@ -2454,7 +2454,7 @@ address {
 
 .c-price-table caption {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .9rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -2617,7 +2617,7 @@ address {
 
 .c-facility-card__label {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .8rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -2710,7 +2710,7 @@ address {
 
 .c-floor-row__floor {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   font-size: 1.2rem;
   letter-spacing: .15em;
@@ -2797,7 +2797,7 @@ address {
 
 .c-facility-tile__en {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .8rem;
   letter-spacing: .3em;
   color: var(--color-accent-bright);
@@ -2850,7 +2850,7 @@ address {
 
 .c-route__from {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .8rem;
   letter-spacing: .3em;
   color: var(--color-accent);
@@ -2892,7 +2892,7 @@ address {
   left: 0;
   top: -.2rem;
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: 1.4rem;
   color: var(--color-accent);
   letter-spacing: .08em;
@@ -2930,7 +2930,7 @@ address {
   display: inline-block;
   padding: 2px 8px;
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .65rem;
   letter-spacing: .2em;
   color: var(--color-bg);
@@ -3008,7 +3008,7 @@ address {
 
 .c-tel-block__label {
   font-family: var(--font-en);
-  font-style: italic;
+  font-style: normal;
   font-size: .85rem;
   letter-spacing: .3em;
   color: var(--color-accent);
