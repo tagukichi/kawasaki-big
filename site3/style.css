@@ -19,11 +19,17 @@
   --color-accent: #2c4a6e;       /* 深い紺 */
   --color-accent-bright: #4a6a92; /* 明るい紺 */
   --color-accent-deep: #1c3754;   /* 最深紺 */
+
+  /* Buttons (ボタン類は緑で統一) */
+  --color-btn: #3da657;
+  --color-btn-deep: #2f8044;
+  --color-btn-bright: #4cc46d;
+
   --color-border: rgba(26, 26, 26, 0.1);
   --color-border-strong: rgba(44, 74, 110, 0.4);
-  --color-footer-bg: #1c3754;     /* フッターも紺系で統一 */
-  --color-footer-text: #f5f7fa;
-  --color-footer-muted: #b6c0cf;
+  --color-footer-bg: #fffbad;     /* フッターは淡い黄色 */
+  --color-footer-text: #1a1a1a;
+  --color-footer-muted: #5a5040;
 
   /* Fonts */
   --font-heading: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
@@ -251,15 +257,15 @@ address {
 }
 
 .c-btn--primary {
-  background: var(--color-accent);
+  background: var(--color-btn);
   color: #fff;
-  border-color: var(--color-accent);
+  border-color: var(--color-btn);
 }
 
 .c-btn--primary:hover,
 .c-btn--primary:focus-visible {
-  background: var(--color-accent-deep);
-  border-color: var(--color-accent-deep);
+  background: var(--color-btn-deep);
+  border-color: var(--color-btn-deep);
   transform: translateY(-2px);
 }
 
@@ -271,9 +277,9 @@ address {
 
 .c-btn--outline:hover,
 .c-btn--outline:focus-visible {
-  border-color: var(--color-accent);
-  color: var(--color-accent-deep);
-  background: rgba(44, 74, 110, .05);
+  border-color: var(--color-btn);
+  color: var(--color-btn-deep);
+  background: rgba(61, 166, 87, .06);
 }
 
 .c-btn--lg {
@@ -959,7 +965,14 @@ address {
 @media (min-width: 751px) {
   .s-services__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .s-services__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -1431,7 +1444,7 @@ address {
   font-style: normal;
   font-size: .85rem;
   letter-spacing: .3em;
-  color: var(--color-accent-bright);
+  color: var(--color-btn-deep);
   margin-bottom: .8rem;
 }
 
@@ -1454,12 +1467,12 @@ address {
   color: var(--color-footer-text);
   display: inline-block;
   margin-top: .3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, .25);
+  border-bottom: 1px solid rgba(0, 0, 0, .35);
 }
 
 .l-footer__addr a:hover {
-  color: var(--color-accent-bright);
-  border-bottom-color: var(--color-accent-bright);
+  color: var(--color-btn-deep);
+  border-bottom-color: var(--color-btn-deep);
 }
 
 .l-footer__sns {
@@ -1474,7 +1487,7 @@ address {
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(182, 192, 207, .4);
+  border: 1px solid rgba(26, 26, 26, .4);
   border-radius: 50%;
   color: var(--color-footer-text);
   transition: background var(--dur-fast) var(--ease-out),
@@ -1483,9 +1496,9 @@ address {
 }
 
 .l-footer__sns-link:hover {
-  background: var(--color-accent);
-  color: var(--color-footer-bg);
-  border-color: var(--color-accent);
+  background: var(--color-btn);
+  color: #fff;
+  border-color: var(--color-btn);
 }
 
 /* 中：MENU / RESERVATION（同じ見た目） */
@@ -1495,13 +1508,13 @@ address {
 .l-footer__col-title {
   font-family: var(--font-en);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: .85rem;
   letter-spacing: .3em;
-  color: var(--color-accent-bright);
+  color: var(--color-btn-deep);
   margin-bottom: 1.2rem;
   padding-bottom: .8rem;
-  border-bottom: 1px solid rgba(182, 192, 207, .25);
+  border-bottom: 1px solid rgba(26, 26, 26, .25);
 }
 
 .l-footer__links {
@@ -1513,20 +1526,20 @@ address {
 .l-footer__links a {
   font-size: .9rem;
   letter-spacing: .04em;
-  color: var(--color-footer-muted);
+  color: var(--color-footer-text);
   white-space: nowrap;
   transition: color var(--dur-fast) var(--ease-out);
 }
 
 .l-footer__links a::before {
   content: "—";
-  color: var(--color-accent-bright);
+  color: var(--color-btn-deep);
   margin-right: 8px;
-  opacity: .6;
+  opacity: .7;
 }
 
 .l-footer__links a:hover {
-  color: var(--color-accent-bright);
+  color: var(--color-btn-deep);
 }
 
 /* 右：キービジュアル — 既存サイト同様、大きく見せる */
@@ -1552,7 +1565,7 @@ address {
 }
 
 .l-footer__bottom {
-  border-top: 1px solid rgba(182, 192, 207, .2);
+  border-top: 1px solid rgba(26, 26, 26, .15);
   padding: 1.6rem 0;
 }
 
@@ -3082,4 +3095,133 @@ address {
     gap: 4rem;
     align-items: stretch;
   }
+}
+
+/* =========================================================================
+   HEADER: SP/タブレット用 ベストレート保証ブロック
+   ヘッダーのロゴ右に「ベストレート保証」テキスト＋「ご予約はコチラから」ボタン
+   PC (≥1280px) では非表示。代わりにポップアップ表示。
+   ========================================================================= */
+.nav__bestrate {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  margin-right: .6rem;
+  text-align: center;
+}
+
+@media (max-width: 1279px) {
+  .nav__bestrate { display: flex; }
+}
+
+.nav__bestrate-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .68rem;
+  letter-spacing: .04em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.nav__bestrate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-btn);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .02em;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  box-shadow: 0 2px 0 var(--color-btn-deep);
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.nav__bestrate-btn:hover,
+.nav__bestrate-btn:focus-visible {
+  background: var(--color-btn-deep);
+  color: #fff;
+}
+
+/* hamburger の auto margin を解除（bestrate が auto を持っているので衝突回避） */
+@media (max-width: 1279px) {
+  .hamburger { margin-left: 0; }
+}
+
+/* =========================================================================
+   PC ベストレート保証 ポップアップ
+   ========================================================================= */
+.c-bestrate-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-bestrate-popup.is-open { display: flex; }
+
+.c-bestrate-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .65);
+  cursor: pointer;
+}
+
+.c-bestrate-popup__inner {
+  position: relative;
+  max-width: 560px;
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+}
+
+.c-bestrate-popup__close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #1a1a1a;
+  border: 0;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+}
+
+.c-bestrate-popup__close:hover,
+.c-bestrate-popup__close:focus-visible {
+  background: var(--color-btn);
+  color: #fff;
+}
+
+.c-bestrate-popup__banner {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+}
+
+.c-bestrate-popup__banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* SP/タブレットでは常時表示のヘッダーボタンがあるのでポップアップは非表示 */
+@media (max-width: 1279px) {
+  .c-bestrate-popup,
+  .c-bestrate-popup.is-open { display: none !important; }
 }

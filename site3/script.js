@@ -168,4 +168,64 @@
     });
   });
 
+  /* ------------------------------------------------------------------
+     ベストレート保証ポップアップ（PCのみ）
+     - HOMEは毎回表示（閉じても抑制なし）
+     - 他ページは閉じてから1時間は再表示しない
+     - HOMEを再訪すると抑制リセット
+     ------------------------------------------------------------------ */
+  (function () {
+    const popup = document.querySelector('.c-bestrate-popup');
+    if (!popup) return;
+
+    const STORE_KEY = 'kb_bestrate_dismissed_at';
+    const SUPPRESS_MS = 60 * 60 * 1000; // 1 hour
+
+    function isDesktop() {
+      return window.matchMedia('(min-width: 1280px)').matches;
+    }
+    function isHome() {
+      const p = location.pathname.replace(/\/+$/, '');
+      return p === '' || p.endsWith('/index.html') || p.endsWith('/index') || p === '/site3';
+    }
+    function open() {
+      popup.classList.add('is-open');
+      popup.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      popup.classList.remove('is-open');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (!isHome()) {
+        try { localStorage.setItem(STORE_KEY, String(Date.now())); } catch (e) {}
+      }
+    }
+
+    if (!isDesktop()) return;
+
+    if (isHome()) {
+      // HOME: 抑制をリセットして毎回表示
+      try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+      open();
+    } else {
+      // 他ページ: 抑制チェック
+      let dismissedAt = 0;
+      try { dismissedAt = parseInt(localStorage.getItem(STORE_KEY) || '0', 10); } catch (e) {}
+      if (!dismissedAt || (Date.now() - dismissedAt) > SUPPRESS_MS) {
+        open();
+      }
+    }
+
+    popup.addEventListener('click', function (e) {
+      const t = e.target;
+      if (t && (t.dataset.bestrateClose === '1' || t.closest('[data-bestrate-close="1"]'))) {
+        close();
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
+    });
+  })();
+
 })();

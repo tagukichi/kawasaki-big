@@ -33,6 +33,11 @@
         <img src="img/title_l.png" alt="カプセル＆サウナ 川崎ビッグ" class="nav__logo-img" width="220" height="60" />
       </a>
 
+      
+      <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" target="_blank" rel="noopener" class="nav__bestrate" aria-label="ベストレート保証｜ご予約はコチラから">
+        <span class="nav__bestrate-label">ベストレート保証</span>
+        <span class="nav__bestrate-btn">ご予約はコチラから</span>
+      </a>
       <ul class="nav__links">
         <li><a href="index.html" class="nav__link">ホーム</a></li>
         <li><a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" target="_blank" rel="noopener" class="nav__link">ご予約</a></li>
@@ -379,5 +384,17 @@
   </button>
 
   <script src="script.js" defer></script>
+
+  <!-- ベストレート保証 PCポップアップ -->
+  <div class="c-bestrate-popup" id="bestrate-popup" role="dialog" aria-modal="true" aria-label="ベストレート保証" aria-hidden="true">
+    <div class="c-bestrate-popup__backdrop" data-bestrate-close="1"></div>
+    <div class="c-bestrate-popup__inner">
+      <button type="button" class="c-bestrate-popup__close" aria-label="閉じる" data-bestrate-close="1">×</button>
+      <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" target="_blank" rel="noopener" class="c-bestrate-popup__banner">
+        <img src="img/banner_reserve.png" alt="ご予約はこちら｜公式サイトご予約が一番お得です（ベストレート保証）" />
+      </a>
+    </div>
+  </div>
+
 </body>
 </html>
