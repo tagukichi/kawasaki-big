@@ -3098,54 +3098,45 @@ address {
 }
 
 /* =========================================================================
-   HEADER: SP/タブレット用 ベストレート保証ブロック
-   ヘッダーのロゴ右に「ベストレート保証」テキスト＋「ご予約はコチラから」ボタン
+   HEADER: SP/タブレット用 ベストレート保証バナー
+   ヘッダーのロゴ右に banner_reserve.png を小さく配置
    PC (≥1280px) では非表示。代わりにポップアップ表示。
    ========================================================================= */
 .nav__bestrate {
   display: none;
-  flex-direction: column;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
   margin-left: auto;
   margin-right: .6rem;
-  text-align: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
 }
 
 @media (max-width: 1279px) {
   .nav__bestrate { display: flex; }
 }
 
-.nav__bestrate-label {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: .68rem;
-  letter-spacing: .04em;
-  color: var(--color-text);
-  white-space: nowrap;
+.nav__bestrate:hover,
+.nav__bestrate:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
 }
 
-.nav__bestrate-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-btn);
-  color: #fff;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: .72rem;
-  letter-spacing: .02em;
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
-  white-space: nowrap;
-  box-shadow: 0 2px 0 var(--color-btn-deep);
-  transition: background var(--dur-fast) var(--ease-out);
+.nav__bestrate-img {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 200px;
 }
 
-.nav__bestrate-btn:hover,
-.nav__bestrate-btn:focus-visible {
-  background: var(--color-btn-deep);
-  color: #fff;
+@media (min-width: 600px) {
+  .nav__bestrate-img {
+    height: 52px;
+    max-width: 240px;
+  }
 }
 
 /* hamburger の auto margin を解除（bestrate が auto を持っているので衝突回避） */
