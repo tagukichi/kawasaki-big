@@ -1138,10 +1138,17 @@ address {
   gap: 1.8rem;
 }
 
-@media (min-width: 751px) {
+@media (min-width: 600px) {
   .s-restaurant__list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .s-restaurant__list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 }
 
