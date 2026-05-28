@@ -191,12 +191,11 @@
     function open() {
       popup.classList.add('is-open');
       popup.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      // 右下の小型ポップアップなので body スクロールはロックしない
     }
     function close() {
       popup.classList.remove('is-open');
       popup.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
       if (!isHome()) {
         try { localStorage.setItem(STORE_KEY, String(Date.now())); } catch (e) {}
       }
@@ -204,16 +203,21 @@
 
     if (!isDesktop()) return;
 
+    function tryShow() {
+      // 少し遅延させてスライドイン演出を見せる
+      window.setTimeout(open, 800);
+    }
+
     if (isHome()) {
       // HOME: 抑制をリセットして毎回表示
       try { localStorage.removeItem(STORE_KEY); } catch (e) {}
-      open();
+      tryShow();
     } else {
       // 他ページ: 抑制チェック
       let dismissedAt = 0;
       try { dismissedAt = parseInt(localStorage.getItem(STORE_KEY) || '0', 10); } catch (e) {}
       if (!dismissedAt || (Date.now() - dismissedAt) > SUPPRESS_MS) {
-        open();
+        tryShow();
       }
     }
 

@@ -365,16 +365,21 @@
 
   <script src="script.js" defer></script>
 
-  <!-- ベストレート保証 PCポップアップ -->
-  <div class="c-bestrate-popup" id="bestrate-popup" role="dialog" aria-modal="true" aria-label="ベストレート保証" aria-hidden="true">
-    <div class="c-bestrate-popup__backdrop" data-bestrate-close="1"></div>
+  <!-- ベストレート保証 PCポップアップ（右下にスライドイン） -->
+  <aside class="c-bestrate-popup" id="bestrate-popup" role="complementary" aria-label="ベストレート保証" aria-hidden="true">
+    <button type="button" class="c-bestrate-popup__close" aria-label="閉じる" data-bestrate-close="1">×</button>
     <div class="c-bestrate-popup__inner">
-      <button type="button" class="c-bestrate-popup__close" aria-label="閉じる" data-bestrate-close="1">×</button>
-      <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" target="_blank" rel="noopener" class="c-bestrate-popup__banner">
-        <img src="img/banner_reserve.png" alt="ご予約はこちら｜公式サイトご予約が一番お得です（ベストレート保証）" />
-      </a>
+      <span class="c-bestrate-popup__badge">公式が最安値</span>
+      <div class="c-bestrate-popup__media">
+        <img src="https://www.kawasaki-big.com/spa_sauna/img/221212-01.jpg"
+             alt="" loading="lazy" decoding="async" />
+      </div>
+      <p class="c-bestrate-popup__lead">川崎駅前 / 24時間営業</p>
+      <p class="c-bestrate-popup__label">ベストレート保証</p>
+      <p class="c-bestrate-popup__price">¥3,500<small>〜 / 1泊</small></p>
+      <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" target="_blank" rel="noopener" class="c-bestrate-popup__cta">ご予約はこちら</a>
     </div>
-  </div>
+  </aside>
 
 </body>
 </html>

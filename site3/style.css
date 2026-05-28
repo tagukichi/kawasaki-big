@@ -3153,73 +3153,162 @@ address {
 
 /* =========================================================================
    PC ベストレート保証 ポップアップ
+   画面右下から「にゅきっと」スライドインする小型カード
    ========================================================================= */
 .c-bestrate-popup {
   position: fixed;
-  inset: 0;
+  right: 1.5rem;
+  bottom: 1.5rem;
   z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
+  width: 320px;
+  max-width: calc(100vw - 2rem);
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px) scale(.96);
+  transition: transform .55s cubic-bezier(.34, 1.56, .64, 1),
+              opacity .35s ease,
+              visibility .35s ease;
 }
 
-.c-bestrate-popup.is-open { display: flex; }
-
-.c-bestrate-popup__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .65);
-  cursor: pointer;
+.c-bestrate-popup.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
 }
 
-.c-bestrate-popup__inner {
-  position: relative;
-  max-width: 560px;
-  width: calc(100% - 2rem);
-  margin: 0 1rem;
-}
+.c-bestrate-popup__backdrop { display: none; }
 
 .c-bestrate-popup__close {
   position: absolute;
-  top: -44px;
-  right: 0;
-  width: 38px;
-  height: 38px;
+  top: -12px;
+  right: -12px;
+  width: 32px;
+  height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #fff;
   color: #1a1a1a;
-  border: 0;
+  border: 2px solid rgba(0, 0, 0, .15);
   border-radius: 50%;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
   line-height: 1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+  z-index: 2;
+  padding: 0;
 }
 
 .c-bestrate-popup__close:hover,
 .c-bestrate-popup__close:focus-visible {
   background: var(--color-btn);
   color: #fff;
+  border-color: var(--color-btn);
 }
 
-.c-bestrate-popup__banner {
-  display: block;
-  border-radius: var(--radius-md);
+.c-bestrate-popup__inner {
+  padding: 14px 16px 16px;
+}
+
+.c-bestrate-popup__badge {
+  display: inline-block;
+  background: #fff5b7;
+  color: #1a1a1a;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .8rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.c-bestrate-popup__badge::before {
+  content: "★ ";
+  color: #d4a300;
+}
+
+.c-bestrate-popup__media {
+  margin: 0 -16px 12px;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
 }
 
-.c-bestrate-popup__banner img {
+.c-bestrate-popup__media img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+
+.c-bestrate-popup__lead {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: .88rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.c-bestrate-popup__label {
+  background: var(--color-footer-bg);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.c-bestrate-popup__price {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: var(--color-btn-deep);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.c-bestrate-popup__price small {
+  font-size: .8rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.c-bestrate-popup__cta {
+  display: block;
+  background: var(--color-btn);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 3px 0 var(--color-btn-deep);
+  transition: background var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.c-bestrate-popup__cta:hover,
+.c-bestrate-popup__cta:focus-visible {
+  background: var(--color-btn-deep);
+  color: #fff;
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--color-btn-deep);
 }
 
 /* SP/タブレットでは常時表示のヘッダーボタンがあるのでポップアップは非表示 */
 @media (max-width: 1279px) {
-  .c-bestrate-popup,
-  .c-bestrate-popup.is-open { display: none !important; }
+  .c-bestrate-popup { display: none !important; }
 }
