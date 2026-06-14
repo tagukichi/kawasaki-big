@@ -108,20 +108,46 @@ get_header();
 
         <div class="c-price-list" style="margin-top:2rem;">
           <div class="c-price-list__item js-fade">
-            <span class="c-price-list__label">A コース<span class="c-price-list__sub">30分</span></span>
-            <span class="c-price-list__price">¥3,800</span>
+            <span class="c-price-list__label">
+              A コース「基本コース」<span class="c-price-list__sub">30分</span>
+              <small style="display:block; margin-top:.3rem; color:var(--color-text-muted); font-weight:400;">①全身アカスリ ②オイル＆海藻トリートメント</small>
+            </span>
+            <span class="c-price-list__price">¥3,980</span>
           </div>
           <div class="c-price-list__item js-fade">
-            <span class="c-price-list__label">B コース<span class="c-price-list__sub">50分</span></span>
-            <span class="c-price-list__price">¥6,500</span>
+            <span class="c-price-list__label">
+              B コース おすすめ「満足コース」<span class="c-price-list__sub">50分</span>
+              <small style="display:block; margin-top:.3rem; color:var(--color-text-muted); font-weight:400;">A＋オイル＆海藻トリートメント</small>
+            </span>
+            <span class="c-price-list__price">¥6,980</span>
           </div>
           <div class="c-price-list__item js-fade">
-            <span class="c-price-list__label">C コース<span class="c-price-list__sub">70分</span></span>
-            <span class="c-price-list__price">¥9,000</span>
+            <span class="c-price-list__label">
+              C コース「ご褒美コース」<span class="c-price-list__sub">70分</span>
+              <small style="display:block; margin-top:.3rem; color:var(--color-text-muted); font-weight:400;">B＋蒸しタオルケア＋かかと角質ケア</small>
+            </span>
+            <span class="c-price-list__price">¥9,800</span>
           </div>
           <div class="c-price-list__item js-fade">
-            <span class="c-price-list__label">D コース<span class="c-price-list__sub">20分・初心者向け</span></span>
-            <span class="c-price-list__price">¥2,980</span>
+            <span class="c-price-list__label">
+              D コース「VIPコース」<span class="c-price-list__sub">90分</span>
+              <small style="display:block; margin-top:.3rem; color:var(--color-text-muted); font-weight:400;">C＋頭皮（スカルプ）ケア＋おしり側面ツボ押し</small>
+            </span>
+            <span class="c-price-list__price">¥12,000</span>
+          </div>
+          <div class="c-price-list__item js-fade">
+            <span class="c-price-list__label">
+              お得なセットコース おすすめ<span class="c-price-list__sub">60分</span>
+              <small style="display:block; margin-top:.3rem; color:var(--color-text-muted); font-weight:400;">アカスリ30分＋オイル30分</small>
+            </span>
+            <span class="c-price-list__price">¥7,980</span>
+          </div>
+          <div class="c-price-list__item js-fade">
+            <span class="c-price-list__label">
+              オプション（コース延長）<span class="c-price-list__sub">10分</span>
+              <small style="display:block; margin-top:.3rem; color:var(--color-text-muted); font-weight:400;">足の定期メンテナンスに①かかと角質／長時間の運転デスクワークに②おしり側面ツボ押し</small>
+            </span>
+            <span class="c-price-list__price">¥1,700</span>
           </div>
         </div>
       </div>
