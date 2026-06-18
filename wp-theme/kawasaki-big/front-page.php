@@ -74,6 +74,7 @@ get_header();
         <div class="s-about__head">
           <h2 class="c-heading js-fade">日常から、<br />すこし離れて。</h2>
           <span class="c-accent-line" aria-hidden="true"></span>
+          <img src="<?php echo kb_img('masaru_02.png'); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         </div>
         <div class="s-about__body js-fade">
           <p>川崎駅東口から徒歩3分。喧騒を抜けて扉を開けば、そこには時間に縛られない静かな休息が広がります。広々とした大浴場と本格サウナで日々の疲れをほどき、24時間営業のレストランで心まで満たす。深夜の到着でも、早朝の出発でも。あなたの時間に寄り添うカプセルホテル。</p>
@@ -92,6 +93,7 @@ get_header();
                loading="lazy" decoding="async" />
         </a>
       </div>
+      <img src="<?php echo kb_img('masaru_03.png'); ?>" alt="" class="c-mascot c-mascot--peek" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
     </section>
 
     <!-- ====================== SERVICES (館内のご案内 4×1) ====================== -->

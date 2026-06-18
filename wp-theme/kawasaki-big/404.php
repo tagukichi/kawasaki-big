@@ -24,6 +24,7 @@ get_header();
       <div class="l-container" style="text-align:center;">
         <p style="margin-bottom:2rem;">お探しのページは見つかりませんでした。<br />URLをご確認のうえ、もう一度お試しください。</p>
         <a href="<?php echo esc_url(home_url('/')); ?>" class="c-btn c-btn--primary c-btn--lg">ホームへ戻る</a>
+        <img src="<?php echo kb_img('masaru_01.png'); ?>" alt="" class="c-mascot c-mascot--center" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
       </div>
     </section>
 

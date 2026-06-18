@@ -33,6 +33,7 @@ get_header();
           <a href="tel:0442460008" class="c-tel-block__num">044-246-0008</a>
           <p class="c-tel-block__sub">24時間 年中無休 / 神奈川県川崎市川崎区小川町15-11</p>
         </div>
+        <img src="<?php echo kb_img('masaru_01.png'); ?>" alt="" class="c-mascot c-mascot--center js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
       </div>
     </section>
 

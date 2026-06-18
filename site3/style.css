@@ -3312,3 +3312,43 @@ address {
 @media (max-width: 1279px) {
   .c-bestrate-popup { display: none !important; }
 }
+
+/* =========================================================================
+   MASCOT (マスル君 飾りイラスト)
+   コンテンツより小さく、装飾的に。クリック不可・スクリーンリーダー無視。
+   ========================================================================= */
+.c-mascot {
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 見出し脇などにインラインで小さく */
+.c-mascot--sm {
+  width: clamp(72px, 9vw, 104px);
+  margin-top: 1.4rem;
+}
+
+/* セクションの隅からひょこっと覗く */
+.c-mascot--peek {
+  position: absolute;
+  bottom: 0;
+  right: clamp(.5rem, 3vw, 2.5rem);
+  width: clamp(64px, 10vw, 110px);
+  z-index: 2;
+}
+
+/* 中央サインオフ（小さめ） */
+.c-mascot--center {
+  width: clamp(120px, 20vw, 190px);
+  margin: 1.5rem auto 0;
+}
+
+/* peek 用に基準を確保 */
+.s-reservation { position: relative; }
+
+@media (max-width: 600px) {
+  /* スマホでは覗きイラストは控えめ or 非表示にして本文優先 */
+  .c-mascot--peek { width: 64px; right: .4rem; opacity: .9; }
+}
