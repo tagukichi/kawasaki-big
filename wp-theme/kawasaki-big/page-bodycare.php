@@ -10,7 +10,7 @@ get_header();
       <div class="s-page-hero__overlay" aria-hidden="true"></div>
       <div class="l-container s-page-hero__inner">
         <h1 class="s-page-hero__title js-fade">ボディケア</h1>
-        <p class="s-page-hero__sub js-fade">日々の疲れを、専門の手で。2F・12:00〜翌3:30。</p>
+        <p class="s-page-hero__sub js-fade">日々の疲れを、専門の手で。2F・11:00〜翌3:30。</p>
         <nav aria-label="パンくず">
           <ol class="c-breadcrumb js-fade">
             <li><a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a></li>

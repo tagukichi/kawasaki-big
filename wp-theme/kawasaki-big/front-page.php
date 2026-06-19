@@ -141,7 +141,7 @@ get_header();
               <div class="c-card__body">
                 <span class="c-card__num">03</span>
                 <h3 class="c-card__title">ボディケア</h3>
-                <p class="c-card__desc">日々の疲れを、専門の手で。2F・12:00〜翌3:30。</p>
+                <p class="c-card__desc">日々の疲れを、専門の手で。2F・11:00〜翌3:30。</p>
                 <span class="c-card__more">詳しく見る <span class="c-card__arrow"></span></span>
               </div>
             </a>

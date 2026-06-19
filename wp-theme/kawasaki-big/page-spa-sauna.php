@@ -59,7 +59,7 @@ get_header();
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="https://www.kawasaki-big.com/spa_sauna/img/230327-09.jpg" alt="バイブラバスの様子" loading="lazy" decoding="async" width="800" height="600" />
+              <img src="https://www.kawasaki-big.com/img/slide/spa-06_2.jpg" alt="バイブラバスの様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
               <p class="c-bath-card__num">02</p>
@@ -101,7 +101,7 @@ get_header();
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="https://www.kawasaki-big.com/spa_sauna/img/img05.jpg" alt="日替り風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
+              <img src="https://www.kawasaki-big.com/spa_sauna/img/img06.jpg" alt="日替り風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
               <p class="c-bath-card__num">05</p>
@@ -114,7 +114,7 @@ get_header();
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="https://www.kawasaki-big.com/spa_sauna/img/img06.jpg" alt="ジェットバスの様子" loading="lazy" decoding="async" width="800" height="600" />
+              <img src="https://www.kawasaki-big.com/spa_sauna/img/230327-09.jpg" alt="ジェットバスの様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
               <p class="c-bath-card__num">06</p>
@@ -127,7 +127,7 @@ get_header();
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="https://www.kawasaki-big.com/img/slide/spa-06_2.jpg" alt="水風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
+              <img src="https://www.kawasaki-big.com/spa_sauna/img/img05.jpg" alt="水風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
               <p class="c-bath-card__num">07</p>

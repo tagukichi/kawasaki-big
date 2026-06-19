@@ -46,7 +46,7 @@ get_header();
           </div>
           <div class="c-facility-card js-fade">
             <p class="c-facility-card__name">ボディケア</p>
-            <p class="c-facility-card__hours">PM 12:00 — AM 3:30</p>
+            <p class="c-facility-card__hours">AM 11:00 — AM 3:30</p>
             <p class="c-facility-card__note">2F フロア</p>
           </div>
           <div class="c-facility-card js-fade">
