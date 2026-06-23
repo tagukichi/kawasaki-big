@@ -46,7 +46,7 @@ get_header();
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="https://www.kawasaki-big.com/spa_sauna/img/221212-01.jpg" alt="富士見風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
+              <img src="<?php echo kb_img('0T8A2705.JPG'); ?>" alt="富士見風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
               <p class="c-bath-card__num">01</p>
@@ -59,7 +59,7 @@ get_header();
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="https://www.kawasaki-big.com/img/slide/spa-06_2.jpg" alt="バイブラバスの様子" loading="lazy" decoding="async" width="800" height="600" />
+              <img src="<?php echo kb_img('IMG_5938.jpg'); ?>" alt="バイブラバスの様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
               <p class="c-bath-card__num">02</p>
