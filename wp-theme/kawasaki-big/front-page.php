@@ -9,10 +9,10 @@ get_header();
     <!-- ====================== HERO ====================== -->
     <section class="s-hero" data-section="hero" aria-label="メインビジュアル">
       <div class="s-hero__slides" aria-hidden="true">
-        <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/spa-06_2.jpg');"></div>
+        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('IMG_0218.JPG'); ?>');"></div>
+        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A2705.JPG'); ?>');"></div>
+        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A4965.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/restaurant02.jpg');"></div>
-        <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/240217_sauna_sl.jpg');"></div>
-        <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/slide_fujimi-01.jpg');"></div>
         <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/spa-04.jpg');"></div>
         <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/bestlate02.jpg');"></div>
       </div>
