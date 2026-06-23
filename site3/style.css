@@ -1863,7 +1863,6 @@ address {
 }
 
 .c-card__media img,
-.c-bath-card__media img,
 .c-banner__media img {
   object-fit: contain !important;
 }
