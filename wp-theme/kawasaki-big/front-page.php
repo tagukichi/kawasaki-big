@@ -12,7 +12,7 @@ get_header();
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('IMG_0218.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A2705.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A4965.JPG'); ?>');"></div>
-        <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/restaurant02.jpg');"></div>
+        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A0533.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/spa-04.jpg');"></div>
         <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/bestlate02.jpg');"></div>
       </div>
@@ -108,7 +108,7 @@ get_header();
           <article class="c-card">
             <a href="<?php echo esc_url(home_url('/spa-sauna/')); ?>" class="c-card__link">
               <div class="c-card__media">
-                <img src="https://www.kawasaki-big.com/spa_sauna/img/240217_sauna_s.jpg" alt="浴室・サウナ" loading="lazy" decoding="async" width="800" height="500" />
+                <img src="<?php echo kb_img('IMG_0218.JPG'); ?>" alt="浴室・サウナ" loading="lazy" decoding="async" width="800" height="500" />
               </div>
               <div class="c-card__body">
                 <span class="c-card__num">01</span>
