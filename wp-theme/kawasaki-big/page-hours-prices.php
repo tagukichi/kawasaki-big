@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
 get_header();
 ?>
 <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
-      <div class="s-page-hero__bg" style="background-image: url('https://www.kawasaki-big.com/img/slide/spa-04.jpg');" aria-hidden="true"></div>
+      <div class="s-page-hero__bg" style="background-image: url('<?php echo kb_img('IMG_5938.jpg'); ?>');" aria-hidden="true"></div>
       <div class="s-page-hero__overlay" aria-hidden="true"></div>
       <div class="l-container s-page-hero__inner">
         <h1 class="s-page-hero__title js-fade">営業時間・料金</h1>

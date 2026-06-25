@@ -7,7 +7,7 @@ get_header();
 ?>
 <!-- ====================== PAGE HERO ====================== -->
     <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
-      <div class="s-page-hero__bg" style="background-image: url('https://www.kawasaki-big.com/spa_sauna/img/240217_sauna_s.jpg');" aria-hidden="true"></div>
+      <div class="s-page-hero__bg" style="background-image: url('<?php echo kb_img('IMG_0218.JPG'); ?>');" aria-hidden="true"></div>
       <div class="s-page-hero__overlay" aria-hidden="true"></div>
       <div class="l-container s-page-hero__inner">
         <h1 class="s-page-hero__title js-fade">浴室・サウナ</h1>
@@ -152,7 +152,7 @@ get_header();
 
         <div class="c-banner js-fade">
           <div class="c-banner__media">
-            <img src="https://www.kawasaki-big.com/spa_sauna/img/240217_sauna_s.jpg" alt="本格フィンランド式サウナの内観" loading="lazy" decoding="async" width="1200" height="800" />
+            <img src="<?php echo kb_img('IMG_0218.JPG'); ?>" alt="本格フィンランド式サウナの内観" loading="lazy" decoding="async" width="1200" height="800" />
           </div>
           <div class="c-banner__body">
             <h3 class="c-banner__title">朝も、夜も。<br />ととのう時間を。</h3>

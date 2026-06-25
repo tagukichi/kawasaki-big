@@ -3321,8 +3321,17 @@ address {
 
 /* 見出し脇などにインラインで小さく */
 .c-mascot--sm {
-  width: clamp(72px, 9vw, 104px);
+  width: clamp(96px, 14vw, 180px);
   margin-top: 1.4rem;
+}
+
+/* SP: 右寄せに配置 */
+@media (max-width: 600px) {
+  .c-mascot--sm {
+    margin-left: auto;
+    margin-right: 0;
+    width: clamp(96px, 28vw, 140px);
+  }
 }
 
 /* セクションの隅からひょこっと覗く */
@@ -3344,6 +3353,7 @@ address {
 .s-reservation { position: relative; }
 
 @media (max-width: 600px) {
-  /* スマホでは覗きイラストは控えめ or 非表示にして本文優先 */
-  .c-mascot--peek { width: 64px; right: .4rem; opacity: .9; }
+  /* SP: バナーと被らないよう、peek イラストはセクション下部に余白を作って配置 */
+  .s-reservation { padding-bottom: 90px; }
+  .c-mascot--peek { width: 88px; right: .8rem; bottom: 0; opacity: 1; }
 }
