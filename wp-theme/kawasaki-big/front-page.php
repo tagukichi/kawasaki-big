@@ -47,22 +47,11 @@ get_header();
     <!-- ====================== INFO BAR ====================== -->
     <section class="s-info" data-section="info" aria-label="営業情報">
       <div class="l-container">
-        <ul class="s-info__list">
-          <li class="s-info__item">
-            <span class="s-info__main">24時間営業</span>
-            <span class="s-info__sub">年中無休</span>
-          </li>
-          <li class="s-info__item">
-            <span class="s-info__main">川崎駅前 徒歩3分</span>
-            <span class="s-info__sub">神奈川県川崎市川崎区小川町15-11</span>
-          </li>
-          <li class="s-info__item">
-            <span class="s-info__main">
-              <a href="tel:<?php echo esc_attr(str_replace('-', '', KAWASAKI_BIG_TEL)); ?>"><?php echo esc_html(KAWASAKI_BIG_TEL); ?></a>
-            </span>
-            <span class="s-info__sub">お電話でのご予約・お問い合わせ</span>
-          </li>
-        </ul>
+        <figure class="s-info__banner js-fade">
+          <img src="<?php echo kb_img('annai.png'); ?>"
+               alt="24時間営業（年中無休）／川崎駅前 徒歩3分／TEL <?php echo esc_attr(KAWASAKI_BIG_TEL); ?>／入れ墨禁止（タトゥー含む）"
+               loading="lazy" decoding="async" />
+        </figure>
       </div>
     </section>
 
