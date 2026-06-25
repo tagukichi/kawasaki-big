@@ -91,7 +91,6 @@ get_header();
                loading="lazy" decoding="async" />
         </a>
       </div>
-      <img src="<?php echo kb_img('masaru_03.png'); ?>" alt="" class="c-mascot c-mascot--peek" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
     </section>
 
     <!-- ====================== SERVICES (館内のご案内 4×1) ====================== -->
@@ -217,6 +216,7 @@ get_header();
         <header class="s-news__head">
           <h2 class="c-heading js-fade">お知らせ</h2>
           <span class="c-accent-line" aria-hidden="true"></span>
+          <img src="<?php echo kb_img('masaru_03.png'); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
         </header>
 
         <ul class="s-news__list">
