@@ -12,6 +12,7 @@ get_header();
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('IMG_0218.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A2705.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A4965.JPG'); ?>');"></div>
+        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('restaurant_masao1.png'); ?>');"></div>
       </div>
       <div class="s-hero__overlay" aria-hidden="true"></div>
 
@@ -119,7 +120,7 @@ get_header();
           <article class="c-card">
             <a href="<?php echo esc_url(home_url('/restaurant/')); ?>" class="c-card__link">
               <div class="c-card__media">
-                <img src="<?php echo kb_img('230304_restaurant24h_am4-5clean.jpg'); ?>" alt="2F レストラン 24時間営業" loading="lazy" decoding="async" width="800" height="500" />
+                <img src="<?php echo kb_img('restaurant.png'); ?>" alt="2F レストラン 24時間営業" loading="lazy" decoding="async" width="800" height="500" />
               </div>
               <div class="c-card__body">
                 <span class="c-card__num">02</span>

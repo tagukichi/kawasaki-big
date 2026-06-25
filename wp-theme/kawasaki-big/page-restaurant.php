@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) exit;
 get_header();
 ?>
 <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
-      <div class="s-page-hero__bg" style="background-image: url('<?php echo kb_img('230304_restaurant24h_am4-5clean.jpg'); ?>');" aria-hidden="true"></div>
+      <div class="s-page-hero__bg" style="background-image: url('<?php echo kb_img('restaurant.png'); ?>');" aria-hidden="true"></div>
       <div class="s-page-hero__overlay" aria-hidden="true"></div>
       <div class="l-container s-page-hero__inner">
         <h1 class="s-page-hero__title js-fade">2F レストラン 24時間営業</h1>
