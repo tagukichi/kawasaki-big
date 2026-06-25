@@ -12,9 +12,6 @@ get_header();
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('IMG_0218.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A2705.JPG'); ?>');"></div>
         <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A4965.JPG'); ?>');"></div>
-        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A0533.JPG'); ?>');"></div>
-        <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/spa-04.jpg');"></div>
-        <div class="s-hero__slide" style="background-image: url('https://www.kawasaki-big.com/img/slide/bestlate02.jpg');"></div>
       </div>
       <div class="s-hero__overlay" aria-hidden="true"></div>
 
