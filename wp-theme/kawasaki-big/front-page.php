@@ -48,7 +48,7 @@ get_header();
     <section class="s-info" data-section="info" aria-label="営業情報">
       <div class="l-container">
         <figure class="s-info__banner js-fade">
-          <img src="<?php echo kb_img('annai.png'); ?>"
+          <img src="<?php echo kb_img('annai2.png'); ?>"
                alt="24時間営業（年中無休）／川崎駅前 徒歩3分／TEL <?php echo esc_attr(KAWASAKI_BIG_TEL); ?>／入れ墨禁止（タトゥー含む）"
                loading="lazy" decoding="async" />
         </figure>
