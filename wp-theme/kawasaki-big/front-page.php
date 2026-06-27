@@ -94,7 +94,7 @@ get_header();
           <article class="c-card">
             <a href="<?php echo esc_url(home_url('/spa-sauna/')); ?>" class="c-card__link">
               <div class="c-card__media">
-                <img src="<?php echo kb_img('IMG_0218.JPG'); ?>" alt="浴室・サウナ" loading="lazy" decoding="async" width="800" height="500" />
+                <img src="<?php echo kb_img('topsaunahuro.png'); ?>" alt="浴室・サウナ" loading="lazy" decoding="async" width="800" height="500" />
               </div>
               <div class="c-card__body">
                 <span class="c-card__num">01</span>
