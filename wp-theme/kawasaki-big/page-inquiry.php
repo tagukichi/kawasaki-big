@@ -4,13 +4,20 @@
  */
 if (!defined('ABSPATH')) exit;
 get_header();
+
+// --- ACF: ページヘッダー（帯）---
+$kb_page_obj = get_queried_object();
+$kb_default_title = ($kb_page_obj && !empty($kb_page_obj->post_title)) ? $kb_page_obj->post_title : 'お問合せ';
+$hero_bg    = kb_field_image_url('hero_bg', '0T8A4965.JPG');
+$hero_title = kb_field('hero_title', $kb_default_title);
+$hero_sub   = kb_field('hero_sub', 'ご質問・ご要望は下記フォームよりお寄せください。');
 ?>
 <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
-      <div class="s-page-hero__bg" style="background-image: url('<?php echo kb_img('0T8A4965.JPG'); ?>');" aria-hidden="true"></div>
+      <div class="s-page-hero__bg" style="background-image: url('<?php echo esc_url($hero_bg); ?>');" aria-hidden="true"></div>
       <div class="s-page-hero__overlay" aria-hidden="true"></div>
       <div class="l-container s-page-hero__inner">
-        <h1 class="s-page-hero__title js-fade">お問合せ</h1>
-        <p class="s-page-hero__sub js-fade">ご質問・ご要望は下記フォームよりお寄せください。</p>
+        <h1 class="s-page-hero__title js-fade"><?php echo esc_html($hero_title); ?></h1>
+        <p class="s-page-hero__sub js-fade"><?php echo esc_html($hero_sub); ?></p>
         <nav aria-label="パンくず">
           <ol class="c-breadcrumb js-fade">
             <li><a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a></li>

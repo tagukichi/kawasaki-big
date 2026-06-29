@@ -1,18 +1,34 @@
 <?php
 /**
  * Front page (TOP)
+ *
+ * ACF設定:
+ *   - 管理画面で固定ページ「ホーム」を作成 → 設定 → 表示設定 → ホームページに指定
+ *   - ACF PRO が有効なら「TOP ページ設定」タブから各要素を編集できます
+ *   - 未入力フィールドは下記の fallback 値が表示されます
  */
 if (!defined('ABSPATH')) exit;
 get_header();
+
+// --- ACF: TOP ページ各要素を取得（未設定なら fallback） ---
+$fv_slides         = kb_get_fv_slides();
+$info_banner       = kb_field_image_url('info_banner_image', 'annai2.png');
+$about_heading     = kb_field('about_heading', '日常から、<br />すこし離れて。');
+$about_body        = kb_field('about_body', '<p>川崎駅東口から徒歩3分。喧騒を抜けて扉を開けば、そこには時間に縛られない静かな休息が広がります。広々とした大浴場と本格サウナで日々の疲れをほどき、24時間営業のレストランで心まで満たす。深夜の到着でも、早朝の出発でも。あなたの時間に寄り添うカプセルホテル。</p><p>ビジネスの拠点として、旅の途中の一夜として、あるいは自分自身を取り戻す数時間として——。' . esc_html(get_bloginfo('name')) . 'は、この街で過ごすすべての夜と昼に、静けさと温もりを差し出します。</p>');
+$about_mascot      = kb_field_image_url('about_mascot', 'masaru_02.png');
+$reserve_banner    = kb_field_image_url('reservation_banner_image', 'banner_reserve.png');
+$services          = kb_get_services_cards();
+$restaurant_head   = kb_field('restaurant_heading', '2F レストラン 24時間営業');
+$restaurant_items  = kb_get_restaurant_items();
+$news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
 ?>
 
     <!-- ====================== HERO ====================== -->
     <section class="s-hero" data-section="hero" aria-label="メインビジュアル">
       <div class="s-hero__slides" aria-hidden="true">
-        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('IMG_0218.JPG'); ?>');"></div>
-        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A2705.JPG'); ?>');"></div>
-        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('0T8A4965.JPG'); ?>');"></div>
-        <div class="s-hero__slide" style="background-image: url('<?php echo kb_img('restaurant_masao1.png'); ?>');"></div>
+        <?php foreach ($fv_slides as $slide_url) : ?>
+        <div class="s-hero__slide" style="background-image: url('<?php echo esc_url($slide_url); ?>');"></div>
+        <?php endforeach; ?>
       </div>
       <div class="s-hero__overlay" aria-hidden="true"></div>
 
@@ -45,27 +61,30 @@ get_header();
     </section>
 
     <!-- ====================== INFO BAR ====================== -->
+    <?php if ($info_banner) : ?>
     <section class="s-info" data-section="info" aria-label="営業情報">
       <div class="l-container">
         <figure class="s-info__banner js-fade">
-          <img src="<?php echo kb_img('annai2.png'); ?>"
+          <img src="<?php echo esc_url($info_banner); ?>"
                alt="24時間営業（年中無休）／川崎駅前 徒歩3分／TEL <?php echo esc_attr(KAWASAKI_BIG_TEL); ?>／入れ墨禁止（タトゥー含む）"
                loading="lazy" decoding="async" />
         </figure>
       </div>
     </section>
+    <?php endif; ?>
 
     <!-- ====================== ABOUT ====================== -->
     <section class="s-about" data-section="about" id="about" aria-label="コンセプト">
       <div class="l-container s-about__inner">
         <div class="s-about__head">
-          <h2 class="c-heading js-fade">日常から、<br />すこし離れて。</h2>
+          <h2 class="c-heading js-fade"><?php echo wp_kses_post($about_heading); ?></h2>
           <span class="c-accent-line" aria-hidden="true"></span>
-          <img src="<?php echo kb_img('masaru_02.png'); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+          <?php if ($about_mascot) : ?>
+          <img src="<?php echo esc_url($about_mascot); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+          <?php endif; ?>
         </div>
         <div class="s-about__body js-fade">
-          <p>川崎駅東口から徒歩3分。喧騒を抜けて扉を開けば、そこには時間に縛られない静かな休息が広がります。広々とした大浴場と本格サウナで日々の疲れをほどき、24時間営業のレストランで心まで満たす。深夜の到着でも、早朝の出発でも。あなたの時間に寄り添うカプセルホテル。</p>
-          <p>ビジネスの拠点として、旅の途中の一夜として、あるいは自分自身を取り戻す数時間として——。<?php bloginfo('name'); ?>は、この街で過ごすすべての夜と昼に、静けさと温もりを差し出します。</p>
+          <?php echo wp_kses_post($about_body); ?>
         </div>
       </div>
     </section>
@@ -74,7 +93,7 @@ get_header();
     <section class="s-reservation" data-section="reservation" id="reservation" aria-label="ご予約">
       <div class="l-container">
         <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="s-reservation__banner js-fade">
-          <img src="<?php echo kb_img('banner_reserve.png'); ?>"
+          <img src="<?php echo esc_url($reserve_banner); ?>"
                alt="ご予約はこちら｜公式サイトご予約が一番お得です（ベストレート保証）"
                width="880" height="220"
                loading="lazy" decoding="async" />
@@ -82,7 +101,7 @@ get_header();
       </div>
     </section>
 
-    <!-- ====================== SERVICES (館内のご案内 4×1) ====================== -->
+    <!-- ====================== SERVICES (館内のご案内) ====================== -->
     <section class="s-services" data-section="services" aria-label="館内のご案内">
       <div class="l-container">
         <header class="s-services__head">
@@ -91,110 +110,49 @@ get_header();
         </header>
 
         <div class="s-services__grid">
+          <?php foreach ($services as $card) : ?>
           <article class="c-card">
-            <a href="<?php echo esc_url(home_url('/spa-sauna/')); ?>" class="c-card__link">
+            <a href="<?php echo esc_url($card['link_url'] ?: '#'); ?>" class="c-card__link">
               <div class="c-card__media">
-                <img src="<?php echo kb_img('topsaunahuro.png'); ?>" alt="浴室・サウナ" loading="lazy" decoding="async" width="800" height="500" />
+                <?php if (!empty($card['image'])) : ?>
+                <img src="<?php echo esc_url($card['image']); ?>" alt="<?php echo esc_attr($card['title']); ?>" loading="lazy" decoding="async" width="800" height="500" />
+                <?php endif; ?>
               </div>
               <div class="c-card__body">
-                <span class="c-card__num">01</span>
-                <h3 class="c-card__title">浴室・サウナ</h3>
-                <p class="c-card__desc">7つのお風呂と本格フィンランド式サウナで芯から、ととのう。</p>
+                <?php if (!empty($card['num'])) : ?><span class="c-card__num"><?php echo esc_html($card['num']); ?></span><?php endif; ?>
+                <h3 class="c-card__title"><?php echo esc_html($card['title']); ?></h3>
+                <?php if (!empty($card['description'])) : ?><p class="c-card__desc"><?php echo esc_html($card['description']); ?></p><?php endif; ?>
                 <span class="c-card__more">詳しく見る <span class="c-card__arrow"></span></span>
               </div>
             </a>
           </article>
-
-          <article class="c-card">
-            <a href="<?php echo esc_url(home_url('/restaurant/')); ?>" class="c-card__link">
-              <div class="c-card__media">
-                <img src="<?php echo kb_img('restaurant.png'); ?>" alt="2F レストラン 24時間営業" loading="lazy" decoding="async" width="800" height="500" />
-              </div>
-              <div class="c-card__body">
-                <span class="c-card__num">02</span>
-                <h3 class="c-card__title">2F レストラン 24時間営業</h3>
-                <p class="c-card__desc">和・洋・中華、四季折々の100種類以上のメニュー。</p>
-                <span class="c-card__more">詳しく見る <span class="c-card__arrow"></span></span>
-              </div>
-            </a>
-          </article>
-
-          <article class="c-card">
-            <a href="<?php echo esc_url(home_url('/bodycare/')); ?>" class="c-card__link">
-              <div class="c-card__media">
-                <img src="https://www.kawasaki-big.com/floor/img/bodycare02.jpg" alt="ボディケア" loading="lazy" decoding="async" width="800" height="500" />
-              </div>
-              <div class="c-card__body">
-                <span class="c-card__num">03</span>
-                <h3 class="c-card__title">ボディケア</h3>
-                <p class="c-card__desc">日々の疲れを、専門の手で。2F・11:00〜翌3:30。</p>
-                <span class="c-card__more">詳しく見る <span class="c-card__arrow"></span></span>
-              </div>
-            </a>
-          </article>
-
-          <article class="c-card">
-            <a href="<?php echo esc_url(home_url('/floor/')); ?>" class="c-card__link">
-              <div class="c-card__media">
-                <img src="https://www.kawasaki-big.com/floor/img/floorguide.jpg" alt="館内案内" loading="lazy" decoding="async" width="800" height="500" />
-              </div>
-              <div class="c-card__body">
-                <span class="c-card__num">04</span>
-                <h3 class="c-card__title">館内案内</h3>
-                <p class="c-card__desc">7フロアにわたる、休息のためのすべて。</p>
-                <span class="c-card__more">詳しく見る <span class="c-card__arrow"></span></span>
-              </div>
-            </a>
-          </article>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
 
-    <!-- ====================== RESTAURANT MENU (4×1) ====================== -->
+    <!-- ====================== RESTAURANT MENU ====================== -->
     <section class="s-restaurant" data-section="restaurant" id="restaurant" aria-label="レストランメニュー">
       <div class="l-container">
         <header class="s-restaurant__head">
-          <h2 class="c-heading js-fade">2F レストラン 24時間営業</h2>
+          <h2 class="c-heading js-fade"><?php echo esc_html($restaurant_head); ?></h2>
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
         <ul class="s-restaurant__list">
+          <?php foreach ($restaurant_items as $item) : ?>
           <li class="s-restaurant__item js-fade">
             <figure class="s-restaurant__figure">
-              <img src="<?php echo kb_img('251117aburamazesoba.jxl.jpg'); ?>" alt="油混ぜそば" loading="lazy" decoding="async" width="600" height="600" />
+              <?php if (!empty($item['image'])) : ?>
+              <img src="<?php echo esc_url($item['image']); ?>" alt="<?php echo esc_attr($item['name']); ?>" loading="lazy" decoding="async" width="600" height="600" />
+              <?php endif; ?>
             </figure>
             <div class="s-restaurant__caption">
-              <span class="s-restaurant__num">01</span>
-              <h3 class="s-restaurant__name">油混ぜそば</h3>
+              <?php if (!empty($item['num'])) : ?><span class="s-restaurant__num"><?php echo esc_html($item['num']); ?></span><?php endif; ?>
+              <h3 class="s-restaurant__name"><?php echo esc_html($item['name']); ?></h3>
             </div>
           </li>
-          <li class="s-restaurant__item js-fade">
-            <figure class="s-restaurant__figure">
-              <img src="<?php echo kb_img('251117ikaten.jpg'); ?>" alt="やわらかイカ天" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="s-restaurant__caption">
-              <span class="s-restaurant__num">02</span>
-              <h3 class="s-restaurant__name">やわらかイカ天</h3>
-            </div>
-          </li>
-          <li class="s-restaurant__item js-fade">
-            <figure class="s-restaurant__figure">
-              <img src="<?php echo kb_img('220804_02.JPG'); ?>" alt="がぶのみヤクルト VS ヤクマンV" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="s-restaurant__caption">
-              <span class="s-restaurant__num">03</span>
-              <h3 class="s-restaurant__name">がぶのみヤクルト VS ヤクマンV</h3>
-            </div>
-          </li>
-          <li class="s-restaurant__item js-fade">
-            <figure class="s-restaurant__figure">
-              <img src="<?php echo kb_img('251117ikaten.jpg'); ?>" alt="（画像準備中）" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="s-restaurant__caption">
-              <span class="s-restaurant__num">04</span>
-              <h3 class="s-restaurant__name">（画像準備中）</h3>
-            </div>
-          </li>
+          <?php endforeach; ?>
         </ul>
       </div>
     </section>
@@ -205,7 +163,9 @@ get_header();
         <header class="s-news__head">
           <h2 class="c-heading js-fade">お知らせ</h2>
           <span class="c-accent-line" aria-hidden="true"></span>
-          <img src="<?php echo kb_img('masaru_03.png'); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+          <?php if ($news_mascot) : ?>
+          <img src="<?php echo esc_url($news_mascot); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+          <?php endif; ?>
         </header>
 
         <ul class="s-news__list">
