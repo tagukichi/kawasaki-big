@@ -149,7 +149,7 @@ acf_add_local_field_group([
                 ['key' => 'field_kb_svc_image', 'label' => '画像', 'name' => 'image', 'type' => 'image', 'return_format' => 'url'],
                 ['key' => 'field_kb_svc_num', 'label' => '番号', 'name' => 'num', 'type' => 'text', 'wrapper' => ['width' => '20']],
                 ['key' => 'field_kb_svc_title', 'label' => 'タイトル', 'name' => 'title', 'type' => 'text', 'wrapper' => ['width' => '40']],
-                ['key' => 'field_kb_svc_link', 'label' => 'リンク先URL', 'name' => 'link_url', 'type' => 'url', 'wrapper' => ['width' => '40'], 'instructions' => '例: /spa-sauna/ または https://...'],
+                ['key' => 'field_kb_svc_link', 'label' => 'リンク先URL', 'name' => 'link_url', 'type' => 'url', 'wrapper' => ['width' => '40'], 'instructions' => '例: /spa_sauna/ または https://...'],
                 ['key' => 'field_kb_svc_desc', 'label' => '説明', 'name' => 'description', 'type' => 'textarea', 'rows' => 2],
             ],
         ],

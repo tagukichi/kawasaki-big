@@ -1,6 +1,6 @@
 <?php
 /**
- * Page template for /hours-prices/
+ * Page template for /hours_prices/
  */
 if (!defined('ABSPATH')) exit;
 get_header();

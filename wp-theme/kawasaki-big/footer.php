@@ -55,10 +55,10 @@ if (!defined('ABSPATH')) exit;
         <h3 class="l-footer__col-title">メニュー</h3>
         <ul class="l-footer__links">
           <li><a href="<?php echo esc_url(home_url('/')); ?>">ホーム</a></li>
-          <li><a href="<?php echo esc_url(home_url('/spa-sauna/')); ?>">浴室・サウナ</a></li>
+          <li><a href="<?php echo esc_url(home_url('/spa_sauna/')); ?>">浴室・サウナ</a></li>
           <li><a href="<?php echo esc_url(home_url('/restaurant/')); ?>">レストラン</a></li>
           <li><a href="<?php echo esc_url(home_url('/bodycare/')); ?>">ボディケア</a></li>
-          <li><a href="<?php echo esc_url(home_url('/hours-prices/')); ?>">営業時間・料金</a></li>
+          <li><a href="<?php echo esc_url(home_url('/hours_prices/')); ?>">営業時間・料金</a></li>
           <li><a href="<?php echo esc_url(home_url('/floor/')); ?>">館内案内</a></li>
           <li><a href="<?php echo esc_url(home_url('/access/')); ?>">アクセス</a></li>
           <li><a href="<?php echo esc_url(home_url('/inquiry/')); ?>">お問合せ</a></li>

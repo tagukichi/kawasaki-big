@@ -13,9 +13,9 @@ wp-theme/kawasaki-big/
 ├── front-page.php       ← TOP（フロントページ）
 ├── single.php           ← 投稿詳細（お知らせ）
 ├── page.php             ← 固定ページ（fallback）
-├── page-spa-sauna.php   ← /spa-sauna/
+├── page-spa_sauna.php   ← /spa_sauna/
 ├── page-restaurant.php  ← /restaurant/
-├── page-hours-prices.php ← /hours-prices/
+├── page-hours_prices.php ← /hours_prices/
 ├── page-bodycare.php    ← /bodycare/
 ├── page-floor.php       ← /floor/
 ├── page-access.php      ← /access/
@@ -42,9 +42,9 @@ WordPress 管理画面 → 外観 → テーマ → "Kawasaki Big" を有効化�
 
 | ページタイトル | スラッグ | 適用テンプレート |
 |---|---|---|
-| 浴室・サウナ | `spa-sauna` | `page-spa-sauna.php`（自動） |
+| 浴室・サウナ | `spa_sauna` | `page-spa_sauna.php`（自動） |
 | レストラン | `restaurant` | `page-restaurant.php`（自動） |
-| 営業時間・料金 | `hours-prices` | `page-hours-prices.php`（自動） |
+| 営業時間・料金 | `hours_prices` | `page-hours_prices.php`（自動） |
 | ボディケア | `bodycare` | `page-bodycare.php`（自動） |
 | 館内案内 | `floor` | `page-floor.php`（自動） |
 | アクセス | `access` | `page-access.php`（自動） |

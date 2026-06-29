@@ -1,6 +1,6 @@
 <?php
 /**
- * Page template for /spa-sauna/
+ * Page template for /spa_sauna/
  */
 if (!defined('ABSPATH')) exit;
 get_header();

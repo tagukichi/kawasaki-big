@@ -152,7 +152,7 @@ function kb_get_services_cards() {
     }
     // fallback: 既存 4 カード
     return [
-        ['image' => kb_img('topsaunahuro.png'),  'num' => '01', 'title' => '浴室・サウナ',                 'description' => '7つのお風呂と本格フィンランド式サウナで芯から、ととのう。', 'link_url' => home_url('/spa-sauna/')],
+        ['image' => kb_img('topsaunahuro.png'),  'num' => '01', 'title' => '浴室・サウナ',                 'description' => '7つのお風呂と本格フィンランド式サウナで芯から、ととのう。', 'link_url' => home_url('/spa_sauna/')],
         ['image' => kb_img('restaurant.png'),    'num' => '02', 'title' => '2F レストラン 24時間営業',     'description' => '和・洋・中華、四季折々の100種類以上のメニュー。',                   'link_url' => home_url('/restaurant/')],
         ['image' => 'https://www.kawasaki-big.com/floor/img/bodycare02.jpg', 'num' => '03', 'title' => 'ボディケア', 'description' => '日々の疲れを、専門の手で。2F・11:00〜翌3:30。', 'link_url' => home_url('/bodycare/')],
         ['image' => 'https://www.kawasaki-big.com/floor/img/floorguide.jpg', 'num' => '04', 'title' => '館内案内',   'description' => '7フロアにわたる、休息のためのすべて。',                              'link_url' => home_url('/floor/')],
