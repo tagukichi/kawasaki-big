@@ -42,7 +42,7 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
           都市の真ん中で、心と体をととのえる。
         </p>
         <div class="s-hero__cta js-fade" data-fade-delay="480">
-          <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="c-btn c-btn--primary c-btn--lg">ご予約はこちら</a>
+          <a href="<?php echo kb_reserve_url(); ?>" class="c-btn c-btn--primary c-btn--lg">ご予約はこちら</a>
           <a href="<?php echo esc_url(home_url('/floor/')); ?>" class="c-btn c-btn--outline c-btn--lg">館内を見る</a>
         </div>
       </div>
@@ -92,7 +92,7 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
     <!-- ====================== RESERVATION BANNER ====================== -->
     <section class="s-reservation" data-section="reservation" id="reservation" aria-label="ご予約">
       <div class="l-container">
-        <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="s-reservation__banner js-fade">
+        <a href="<?php echo kb_reserve_url(); ?>" class="s-reservation__banner js-fade">
           <img src="<?php echo esc_url($reserve_banner); ?>"
                alt="ご予約はこちら｜公式サイトご予約が一番お得です（ベストレート保証）"
                width="880" height="220"

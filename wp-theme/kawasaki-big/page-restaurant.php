@@ -189,8 +189,7 @@ $hero_sub   = kb_field('hero_sub', '和・洋・中華、四季折々の100種�
     <section class="s-reservation" data-section="reservation" id="reservation" aria-label="ご予約">
       <div class="l-container">
         <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN"
-           class="s-reservation__banner js-fade"
-           target="_blank" rel="noopener">
+           class="s-reservation__banner js-fade">
           <!-- TODO: 予約バナー画像を差し替えてください -->
           <img src="<?php echo kb_img('banner_reserve.png'); ?>"
                alt="ご予約はこちら｜公式サイトご予約が一番お得です（ベストレート保証）"

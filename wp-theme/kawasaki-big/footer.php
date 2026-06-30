@@ -107,7 +107,7 @@ if (!defined('ABSPATH')) exit;
       <p class="c-bestrate-popup__lead">川崎駅前 / 24時間営業</p>
       <p class="c-bestrate-popup__label">ベストレート保証</p>
       <p class="c-bestrate-popup__price">¥3,500<small>〜 / 1泊</small></p>
-      <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="c-bestrate-popup__cta">ご予約はこちら</a>
+      <a href="<?php echo kb_reserve_url(); ?>" class="c-bestrate-popup__cta">ご予約はこちら</a>
     </div>
   </aside>
 

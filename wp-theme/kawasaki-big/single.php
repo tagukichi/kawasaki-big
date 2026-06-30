@@ -55,7 +55,7 @@ get_header();
     <!-- ====================== RESERVATION BANNER ====================== -->
     <section class="s-reservation" data-section="reservation" id="reservation" aria-label="ご予約">
       <div class="l-container">
-        <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="s-reservation__banner js-fade">
+        <a href="<?php echo kb_reserve_url(); ?>" class="s-reservation__banner js-fade">
           <img src="<?php echo kb_img('banner_reserve.png'); ?>"
                alt="ご予約はこちら｜公式サイトご予約が一番お得です（ベストレート保証）"
                width="880" height="220"

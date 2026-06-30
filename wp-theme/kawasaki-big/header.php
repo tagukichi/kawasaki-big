@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) exit;
         <img src="<?php echo kb_img('title_l.png'); ?>" alt="<?php bloginfo('name'); ?>" class="nav__logo-img" width="220" height="60" />
       </a>
 
-      <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="nav__bestrate" aria-label="ベストレート保証｜ご予約はコチラから">
+      <a href="<?php echo kb_reserve_url(); ?>" class="nav__bestrate" aria-label="ベストレート保証｜ご予約はコチラから">
         <img src="<?php echo kb_img('banner_reserve.png'); ?>" alt="ベストレート保証｜ご予約はコチラから" class="nav__bestrate-img" />
       </a>
 
@@ -51,7 +51,7 @@ if (!defined('ABSPATH')) exit;
           <span class="nav__tel-label">電話番号</span>
           <span class="nav__tel-num"><?php echo esc_html(KAWASAKI_BIG_TEL); ?></span>
         </a>
-        <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="c-btn c-btn--primary nav__cta">ご予約</a>
+        <a href="<?php echo kb_reserve_url(); ?>" class="c-btn c-btn--primary nav__cta">ご予約</a>
       </div>
 
       <button class="hamburger js-hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
@@ -78,7 +78,7 @@ if (!defined('ABSPATH')) exit;
           <a href="tel:<?php echo esc_attr(str_replace('-', '', KAWASAKI_BIG_TEL)); ?>" class="mobile-menu__tel">
             <span>電話番号</span> <?php echo esc_html(KAWASAKI_BIG_TEL); ?>
           </a>
-          <a href="<?php echo kb_reserve_url(); ?>" target="_blank" rel="noopener" class="c-btn c-btn--primary mobile-menu__cta">ご予約はこちら</a>
+          <a href="<?php echo kb_reserve_url(); ?>" class="c-btn c-btn--primary mobile-menu__cta">ご予約はこちら</a>
         </div>
       </div>
     </nav>
@@ -91,7 +91,7 @@ function kawasaki_big_default_primary_menu() {
     $url = kb_reserve_url();
     echo '<ul class="nav__links">'
         . '<li><a class="nav__link" href="' . esc_url(home_url('/')) . '">ホーム</a></li>'
-        . '<li><a class="nav__link" href="' . $url . '" target="_blank" rel="noopener">ご予約</a></li>'
+        . '<li><a class="nav__link" href="' . $url . '">ご予約</a></li>'
         . '<li><a class="nav__link" href="' . esc_url(home_url('/spa_sauna/')) . '">浴室・サウナ</a></li>'
         . '<li><a class="nav__link" href="' . esc_url(home_url('/restaurant/')) . '">レストラン</a></li>'
         . '<li><a class="nav__link" href="' . esc_url(home_url('/hours_prices/')) . '">営業時間・料金</a></li>'
@@ -105,7 +105,7 @@ function kawasaki_big_default_mobile_menu() {
     $url = kb_reserve_url();
     echo '<ul class="mobile-menu__list">'
         . '<li><a href="' . esc_url(home_url('/')) . '">ホーム</a></li>'
-        . '<li><a href="' . $url . '" target="_blank" rel="noopener">ご予約</a></li>'
+        . '<li><a href="' . $url . '">ご予約</a></li>'
         . '<li><a href="' . esc_url(home_url('/spa_sauna/')) . '">浴室・サウナ</a></li>'
         . '<li><a href="' . esc_url(home_url('/restaurant/')) . '">レストラン</a></li>'
         . '<li><a href="' . esc_url(home_url('/hours_prices/')) . '">営業時間・料金</a></li>'
