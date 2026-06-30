@@ -1192,11 +1192,13 @@ address {
   overflow: hidden;
   border-radius: var(--radius-md);
   background: var(--color-bg-alt);
+  aspect-ratio: 1 / 1;
 }
 
 .s-restaurant__figure img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   transition: transform var(--dur-slow) var(--ease-out);
 }
