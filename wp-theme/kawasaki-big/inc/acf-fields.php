@@ -244,5 +244,12 @@ acf_add_local_field_group([
             'type' => 'text',
             'instructions' => '帯タイトル下の小さなテキスト。',
         ],
+        [
+            'key' => 'field_kb_cf7_shortcode',
+            'label' => 'Contact Form 7 ショートコード',
+            'name' => 'cf7_shortcode',
+            'type' => 'text',
+            'instructions' => 'お問合せページでのみ使用。例) [contact-form-7 id="123" title="お問合せ"] ／ 未入力でも CF7 が有効なら「お問合せ」というタイトルのフォームを自動表示します。CF7 未導入なら静的フォームが表示されます。',
+        ],
     ],
 ]);

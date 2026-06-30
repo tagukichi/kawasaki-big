@@ -2965,6 +2965,34 @@ address {
   gap: 1.4rem;
 }
 
+/* CF7 が <form> を自前で挿入するため、.c-form 直下の wpcf7-form にも同じレイアウトを適用 */
+.c-form .wpcf7-form,
+.c-form > form.wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* CF7 が input を <span class="wpcf7-form-control-wrap"> で包むので、その span は block 扱いに */
+.c-form .wpcf7-form-control-wrap {
+  display: block;
+}
+
+/* CF7 のエラーメッセージ（赤帯）— サイトの配色に合わせる */
+.c-form .wpcf7-not-valid-tip {
+  color: #c0392b;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+.c-form .wpcf7-response-output {
+  margin: 1.2rem 0 0;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+}
+
 .c-form__row {
   display: flex;
   flex-direction: column;

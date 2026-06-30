@@ -52,46 +52,71 @@ $hero_sub   = kb_field('hero_sub', 'ご質問・ご要望は下記フォーム�
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <form action="#" method="post" class="c-form js-fade" novalidate>
-          <div class="c-form__row">
-            <label for="form-name" class="c-form__label">
-              お名前
-              <span class="c-form__required">必須</span>
-            </label>
-            <input type="text" id="form-name" name="name" class="c-form__input" placeholder="例) 川崎 太郎" required aria-required="true" autocomplete="name" />
-          </div>
+        <?php
+        /*
+         * フォームの出力ロジック（3段階フォールバック）:
+         *   1. ACF「Contact Form 7 ショートコード」フィールドに値あり → そのショートコードを実行
+         *   2. CF7 プラグインが有効 → [contact-form-7 title="お問合せ"] で自動取得
+         *   3. CF7 未導入 → 既存の静的 HTML フォームを表示
+         */
+        $kb_cf7_shortcode = trim((string) kb_field('cf7_shortcode', ''));
+        $kb_cf7_active = shortcode_exists('contact-form-7');
+        $kb_form_html = '';
 
-          <div class="c-form__row">
-            <label for="form-tel" class="c-form__label">
-              電話番号
-            </label>
-            <input type="tel" id="form-tel" name="tel" class="c-form__input" placeholder="例) 09012345678（半角数字）" pattern="[0-9]*" autocomplete="tel" />
-          </div>
+        if ($kb_cf7_active && $kb_cf7_shortcode !== '') {
+            $kb_form_html = do_shortcode($kb_cf7_shortcode);
+        } elseif ($kb_cf7_active) {
+            $kb_form_html = do_shortcode('[contact-form-7 title="お問合せ"]');
+        }
+        ?>
 
-          <div class="c-form__row">
-            <label for="form-email" class="c-form__label">
-              メールアドレス
-              <span class="c-form__required">必須</span>
-            </label>
-            <input type="email" id="form-email" name="email" class="c-form__input" placeholder="例) name@example.com" required aria-required="true" autocomplete="email" />
+        <?php if (trim($kb_form_html) !== '') : ?>
+          <div class="c-form js-fade">
+            <?php echo $kb_form_html; ?>
           </div>
+        <?php else : ?>
+          <!-- CF7 が無効 or フォーム未作成: 静的フォーム fallback -->
+          <form action="#" method="post" class="c-form js-fade" novalidate>
+            <div class="c-form__row">
+              <label for="form-name" class="c-form__label">
+                お名前
+                <span class="c-form__required">必須</span>
+              </label>
+              <input type="text" id="form-name" name="name" class="c-form__input" placeholder="例) 川崎 太郎" required aria-required="true" autocomplete="name" />
+            </div>
 
-          <div class="c-form__row">
-            <label for="form-message" class="c-form__label">
-              お問合せ内容
-              <span class="c-form__required">必須</span>
-            </label>
-            <textarea id="form-message" name="message" class="c-form__textarea" placeholder="ご質問・ご要望をお書きください。" required aria-required="true"></textarea>
-          </div>
+            <div class="c-form__row">
+              <label for="form-tel" class="c-form__label">
+                電話番号
+              </label>
+              <input type="tel" id="form-tel" name="tel" class="c-form__input" placeholder="例) 09012345678（半角数字）" pattern="[0-9]*" autocomplete="tel" />
+            </div>
 
-          <p class="c-form__note">
-            ※IPアドレスを記録しております。迷惑メール等はご遠慮ください。
-          </p>
+            <div class="c-form__row">
+              <label for="form-email" class="c-form__label">
+                メールアドレス
+                <span class="c-form__required">必須</span>
+              </label>
+              <input type="email" id="form-email" name="email" class="c-form__input" placeholder="例) name@example.com" required aria-required="true" autocomplete="email" />
+            </div>
 
-          <div class="c-form__submit-wrap">
-            <button type="submit" class="c-btn c-btn--primary c-btn--xl">確認画面へ →</button>
-          </div>
-        </form>
+            <div class="c-form__row">
+              <label for="form-message" class="c-form__label">
+                お問合せ内容
+                <span class="c-form__required">必須</span>
+              </label>
+              <textarea id="form-message" name="message" class="c-form__textarea" placeholder="ご質問・ご要望をお書きください。" required aria-required="true"></textarea>
+            </div>
+
+            <p class="c-form__note">
+              ※IPアドレスを記録しております。迷惑メール等はご遠慮ください。
+            </p>
+
+            <div class="c-form__submit-wrap">
+              <button type="submit" class="c-btn c-btn--primary c-btn--xl">確認画面へ →</button>
+            </div>
+          </form>
+        <?php endif; ?>
       </div>
     </section>
 
