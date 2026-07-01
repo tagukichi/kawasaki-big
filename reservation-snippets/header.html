@@ -1,7 +1,8 @@
 <!--
   予約ページ用 ヘッダー（カプセル＆サウナ 川崎ビッグ）
-  - 折り返し禁止、ナビはロゴの直後に密着配置
-  - TEL/CTA は margin-left: auto で右端に押し出し
+  - 折り返し禁止。ロゴの右横にナビ → その直後に TEL + 予約ボタン（お問合せのすぐ右）
+  - 1300px 未満はナビ/アクションを隠し、ハンバーガー + 全画面メニューを表示（HPと同挙動）
+  - 全 CSS/JS を同梱。クラス名は kb- プレフィックスで衝突回避
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +23,12 @@
   }
   .kb-header__logo { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
   .kb-header__logo img { height: 56px; width: auto; display: block; }
+
+  /* ナビ：ロゴの右横に密着 */
   .kb-header__nav {
     display: flex; align-items: center; gap: 18px;
-    list-style: none; padding: 0; margin: 0 0 0 24px;   /* ロゴとの距離だけ確保、auto なし */
-    flex-wrap: nowrap; min-width: 0; overflow: hidden;
+    list-style: none; padding: 0; margin: 0 0 0 24px;
+    flex-wrap: nowrap; min-width: 0;
   }
   .kb-header__nav a {
     color: #2c4a6e; font-weight: 500; font-size: 13px;
@@ -33,12 +36,12 @@
     transition: color .2s;
   }
   .kb-header__nav a:hover { color: #3da657; }
-  .kb-header__nav a.kb-now {
-    color: #3da657; border-bottom: 2px solid #3da657; padding-bottom: 4px;
-  }
+  .kb-header__nav a.kb-now { color: #3da657; border-bottom: 2px solid #3da657; padding-bottom: 4px; }
+
+  /* アクション：お問合せのすぐ右（margin-left:auto は付けない） */
   .kb-header__actions {
     display: flex; align-items: center; gap: 14px;
-    flex-shrink: 0; margin-left: auto;                  /* ★actions を右端に */
+    flex-shrink: 0; margin-left: 8px;
   }
   .kb-header__tel { text-decoration: none; color: #2c4a6e; line-height: 1.1; text-align: right; }
   .kb-header__tel-label { display: block; font-size: 10px; letter-spacing: .12em; color: #888; }
@@ -51,18 +54,54 @@
   }
   .kb-header__cta:hover { background: #2f8a47; transform: translateY(-1px); }
 
-  /* 1300px未満はナビ非表示（logo + tel + CTA のみ表示） */
+  /* ハンバーガー（PCでは非表示） */
+  .kb-hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; margin-left: auto; padding: 10px;
+    background: none; border: none; cursor: pointer; flex-shrink: 0;
+  }
+  .kb-hamburger span { display: block; width: 24px; height: 2px; background: #2c4a6e; transition: transform .3s, opacity .3s; }
+  .kb-hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .kb-hamburger.is-active span:nth-child(2) { opacity: 0; }
+  .kb-hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* 全画面モバイルメニュー */
+  .kb-mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(255,255,255,.98);
+    flex-direction: column; align-items: center; justify-content: center;
+    padding: 24px; overflow-y: auto;
+    font-family: 'Zen Kaku Gothic New','Noto Sans JP', sans-serif;
+  }
+  .kb-mobile-menu.is-open { display: flex; }
+  .kb-mobile-menu__close {
+    position: absolute; top: 18px; right: 20px;
+    width: 40px; height: 40px; border: none; background: none; cursor: pointer;
+    font-size: 30px; line-height: 1; color: #2c4a6e;
+  }
+  .kb-mobile-menu__list { list-style: none; padding: 0; margin: 0 0 32px; text-align: center; }
+  .kb-mobile-menu__list li { margin-bottom: 18px; }
+  .kb-mobile-menu__list a {
+    color: #2c2c2c; text-decoration: none; font-size: 17px; font-weight: 700; letter-spacing: .1em;
+  }
+  .kb-mobile-menu__list a.kb-now { color: #3da657; }
+  .kb-mobile-menu__contact { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 320px; }
+  .kb-mobile-menu__tel { text-decoration: none; color: #2c4a6e; font-size: 22px; font-weight: 700; }
+  .kb-mobile-menu__cta {
+    display: inline-block; width: 100%; text-align: center;
+    background: #3da657; color: #fff !important; text-decoration: none; font-weight: 700;
+    padding: 14px 24px; border-radius: 999px; font-size: 16px;
+  }
+
+  /* ===== ブレークポイント ===== */
   @media (max-width: 1299px) {
-    .kb-header__nav { display: none; }
+    .kb-header__nav, .kb-header__actions { display: none; }
+    .kb-hamburger { display: flex; }
   }
   @media (max-width: 768px) {
-    .kb-header__inner { padding: 12px 16px; gap: 10px; }
+    .kb-header__inner { padding: 12px 16px; }
     .kb-header__logo img { height: 40px; }
-    .kb-header__tel-label { display: none; }
-    .kb-header__tel-num { font-size: 14px; }
-    .kb-header__cta { padding: 9px 14px; font-size: 12px; }
   }
-  @media (max-width: 480px) { .kb-header__tel { display: none; } }
 </style>
 
 <header class="kb-header">
@@ -90,5 +129,47 @@
       </a>
       <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" class="kb-header__cta">ご予約</a>
     </div>
+
+    <button class="kb-hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="kb-mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div class="kb-mobile-menu" id="kb-mobile-menu" role="dialog" aria-label="メニュー">
+  <button class="kb-mobile-menu__close" type="button" aria-label="メニューを閉じる">&times;</button>
+  <ul class="kb-mobile-menu__list">
+    <li><a href="http://kawasaki-big.com/">ホーム</a></li>
+    <li><a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" class="kb-now">ご予約</a></li>
+    <li><a href="http://kawasaki-big.com/spa_sauna/">浴室・サウナ</a></li>
+    <li><a href="http://kawasaki-big.com/restaurant/">レストラン</a></li>
+    <li><a href="http://kawasaki-big.com/hours_prices/">営業時間・料金</a></li>
+    <li><a href="http://kawasaki-big.com/bodycare/">ボディケア</a></li>
+    <li><a href="http://kawasaki-big.com/floor/">館内案内</a></li>
+    <li><a href="http://kawasaki-big.com/access/">アクセス</a></li>
+    <li><a href="http://kawasaki-big.com/inquiry/">お問合せ</a></li>
+  </ul>
+  <div class="kb-mobile-menu__contact">
+    <a href="tel:0442460008" class="kb-mobile-menu__tel">044-246-0008</a>
+    <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" class="kb-mobile-menu__cta">ご予約はこちら</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var btn   = document.querySelector('.kb-hamburger');
+  var menu  = document.getElementById('kb-mobile-menu');
+  var close = menu ? menu.querySelector('.kb-mobile-menu__close') : null;
+  if (!btn || !menu) return;
+  function setOpen(open) {
+    menu.classList.toggle('is-open', open);
+    btn.classList.toggle('is-active', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function () { setOpen(!menu.classList.contains('is-open')); });
+  if (close) close.addEventListener('click', function () { setOpen(false); });
+  menu.addEventListener('click', function (e) {
+    if (e.target === menu || e.target.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
