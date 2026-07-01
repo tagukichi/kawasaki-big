@@ -10,8 +10,6 @@ if (!defined('ABSPATH')) exit;
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ffffff' stroke='%232c4a6e' stroke-width='6'/%3E%3Ctext x='50' y='70' font-family='serif' font-style='italic' font-size='62' text-anchor='middle' fill='%232c4a6e'%3EB%3C/text%3E%3C/svg%3E" />
-
   <?php wp_head(); ?>
 </head>
 
