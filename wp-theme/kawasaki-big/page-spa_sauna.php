@@ -10,7 +10,7 @@ $kb_page_obj = get_queried_object();
 $kb_default_title = ($kb_page_obj && !empty($kb_page_obj->post_title)) ? $kb_page_obj->post_title : '浴室・サウナ';
 $hero_bg    = kb_field_image_url('hero_bg', 'IMG_0218.JPG');
 $hero_title = kb_field('hero_title', $kb_default_title);
-$hero_sub   = kb_field('hero_sub', '7つのお風呂と2つのサウナ。芯から、ととのえる。');
+$hero_sub   = kb_field('hero_sub', '6つのお風呂と2つのサウナ。芯から、ととのえる。');
 ?>
 <!-- ====================== PAGE HERO ====================== -->
     <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
@@ -36,7 +36,7 @@ $hero_sub   = kb_field('hero_sub', '7つのお風呂と2つのサウナ。芯か
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
         <p class="s-block__lead js-fade">
-          身体の芯まで温まり、明日への活力を蘇らせる。多彩な7種のお風呂と本格サウナで、あなたの「ととのう」をお届けします。
+          身体の芯まで温まり、明日への活力を蘇らせる。多彩な6種のお風呂と本格サウナで、あなたの「ととのう」をお届けします。
         </p>
       </div>
     </section>
@@ -45,7 +45,7 @@ $hero_sub   = kb_field('hero_sub', '7つのお風呂と2つのサウナ。芯か
     <section class="s-block s-block--alt" data-section="bath-list" aria-label="お風呂一覧">
       <div class="l-container">
         <header class="s-block__head">
-          <h2 class="c-heading js-fade">7つのお風呂</h2>
+          <h2 class="c-heading js-fade">6つのお風呂</h2>
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
@@ -121,23 +121,10 @@ $hero_sub   = kb_field('hero_sub', '7つのお風呂と2つのサウナ。芯か
 
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__media">
-              <img src="<?php echo kb_img('IMG_5938.jpg'); ?>" alt="ジェットバスの様子" loading="lazy" decoding="async" width="800" height="600" />
-            </div>
-            <div class="c-bath-card__body">
-              <p class="c-bath-card__num">06</p>
-              <h3 class="c-bath-card__title">ジェットバス</h3>
-              <p class="c-bath-card__desc">
-                強弱のあるジェット噴流が、凝り固まった肩や腰をやさしく押し流します。長時間のデスクワーク疲れにもおすすめです。
-              </p>
-            </div>
-          </article>
-
-          <article class="c-bath-card js-fade">
-            <div class="c-bath-card__media">
               <img src="<?php echo kb_img('IMG_5917.jpg'); ?>" alt="水風呂の様子" loading="lazy" decoding="async" width="800" height="600" />
             </div>
             <div class="c-bath-card__body">
-              <p class="c-bath-card__num">07</p>
+              <p class="c-bath-card__num">06</p>
               <h3 class="c-bath-card__title">水風呂</h3>
               <p class="c-bath-card__desc">
                 サウナ後のキリッと冷たい水風呂で、ととのいの瞬間を。火照った身体を一気にクールダウンさせ、深い静けさへと導きます。
