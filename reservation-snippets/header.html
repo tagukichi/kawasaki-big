@@ -1,121 +1,60 @@
 <!--
   予約ページ用 ヘッダー（カプセル＆サウナ 川崎ビッグ）
-  - 489pro の予約システム編集画面にそのまま貼り付け可能
-  - 全 CSS は <style> 内に同梱（外部CSS依存なし）
-  - クラス名はすべて kb- プレフィックスで予約システムCSSと衝突しないよう調整
-  - 折り返し禁止 + 早めのブレークポイントでナビ非表示に切替（PC以外は logo + tel + CTA のみ）
+  - 折り返し禁止、ナビはロゴの直後に密着配置
+  - TEL/CTA は margin-left: auto で右端に押し出し
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
-  /* ===== Kawasaki Big | 予約ページ ヘッダー ===== */
   .kb-header * { box-sizing: border-box; }
   .kb-header {
-    position: relative;
-    width: 100%;
-    background: #ffffff;
+    position: relative; width: 100%; background: #ffffff;
     border-bottom: 1px solid #e6e6e6;
     font-family: 'Zen Kaku Gothic New','Noto Sans JP', sans-serif;
-    color: #2c2c2c;
-    z-index: 50;
+    color: #2c2c2c; z-index: 50;
   }
   .kb-header__inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: nowrap;          /* ★折り返し禁止 */
-    white-space: nowrap;
+    max-width: 1400px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: nowrap; white-space: nowrap;
   }
-  .kb-header__logo {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .kb-header__logo img {
-    height: 56px;
-    width: auto;
-    display: block;
-  }
+  .kb-header__logo { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+  .kb-header__logo img { height: 56px; width: auto; display: block; }
   .kb-header__nav {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    list-style: none;
-    padding: 0;
-    margin-block: 0;
-    flex-wrap: nowrap;          /* ★ナビ内も折り返し禁止 */
-    min-width: 0;
-    overflow: hidden;
+    display: flex; align-items: center; gap: 18px;
+    list-style: none; padding: 0; margin: 0 0 0 24px;   /* ロゴとの距離だけ確保、auto なし */
+    flex-wrap: nowrap; min-width: 0; overflow: hidden;
   }
   .kb-header__nav a {
-    color: #2c4a6e;
-    font-weight: 500;
-    font-size: 13px;
-    text-decoration: none;
-    white-space: nowrap;
-    letter-spacing: .04em;
+    color: #2c4a6e; font-weight: 500; font-size: 13px;
+    text-decoration: none; white-space: nowrap; letter-spacing: .04em;
     transition: color .2s;
   }
   .kb-header__nav a:hover { color: #3da657; }
   .kb-header__nav a.kb-now {
-    color: #3da657;
-    border-bottom: 2px solid #3da657;
-    padding-bottom: 4px;
+    color: #3da657; border-bottom: 2px solid #3da657; padding-bottom: 4px;
   }
   .kb-header__actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-    margin-left: auto;          /* ナビ非表示時にもTEL/CTAを右寄せ */
+    display: flex; align-items: center; gap: 14px;
+    flex-shrink: 0; margin-left: auto;                  /* ★actions を右端に */
   }
-  .kb-header__nav ~ .kb-header__actions { margin-left: 0; } /* ナビある時は margin-left: auto は nav 側に任せる */
-  .kb-header__tel {
-    text-decoration: none;
-    color: #2c4a6e;
-    line-height: 1.1;
-    text-align: right;
-  }
-  .kb-header__tel-label {
-    display: block;
-    font-size: 10px;
-    letter-spacing: .12em;
-    color: #888;
-  }
-  .kb-header__tel-num {
-    display: block;
-    font-size: 18px;
-    font-weight: 700;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
-  }
+  .kb-header__tel { text-decoration: none; color: #2c4a6e; line-height: 1.1; text-align: right; }
+  .kb-header__tel-label { display: block; font-size: 10px; letter-spacing: .12em; color: #888; }
+  .kb-header__tel-num { display: block; font-size: 18px; font-weight: 700; }
   .kb-header__cta {
-    display: inline-block;
-    background: #3da657;
-    color: #ffffff !important;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 12px 22px;
-    border-radius: 999px;
-    font-size: 14px;
-    letter-spacing: .04em;
-    transition: background .2s, transform .2s;
-    flex-shrink: 0;
+    display: inline-block; background: #3da657; color: #ffffff !important;
+    text-decoration: none; font-weight: 700; padding: 12px 22px;
+    border-radius: 999px; font-size: 14px; letter-spacing: .04em;
+    transition: background .2s, transform .2s; flex-shrink: 0;
   }
   .kb-header__cta:hover { background: #2f8a47; transform: translateY(-1px); }
 
-  /* ===== ナビが入り切らない領域は早めに非表示（PC想定 1300px 以上でナビ表示） ===== */
+  /* 1300px未満はナビ非表示（logo + tel + CTA のみ表示） */
   @media (max-width: 1299px) {
     .kb-header__nav { display: none; }
   }
-
-  /* ===== タブレット・スマホ ===== */
   @media (max-width: 768px) {
     .kb-header__inner { padding: 12px 16px; gap: 10px; }
     .kb-header__logo img { height: 40px; }
@@ -123,9 +62,7 @@
     .kb-header__tel-num { font-size: 14px; }
     .kb-header__cta { padding: 9px 14px; font-size: 12px; }
   }
-  @media (max-width: 480px) {
-    .kb-header__tel { display: none; }
-  }
+  @media (max-width: 480px) { .kb-header__tel { display: none; } }
 </style>
 
 <header class="kb-header">
@@ -148,7 +85,7 @@
 
     <div class="kb-header__actions">
       <a href="tel:0442460008" class="kb-header__tel" aria-label="電話番号 044-246-0008">
-        <span class="kb-header__tel-label">TEL</span>
+        <span class="kb-header__tel-label">電話番号</span>
         <span class="kb-header__tel-num">044-246-0008</span>
       </a>
       <a href="https://www5.489pro.com/asp/489/menu.asp?id=14000064&amp;lan=JPN" class="kb-header__cta">ご予約</a>

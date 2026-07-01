@@ -1,12 +1,11 @@
 <!--
   予約ページ用 フッター（カプセル＆サウナ 川崎ビッグ）
-  - 489pro の予約システム編集画面にそのまま貼り付け可能
   - 全 CSS は <style> 内に同梱（外部CSS依存なし）
-  - クラス名はすべて kb- プレフィックスで予約システムCSSと衝突しないよう調整
-  - 画像URLは GitHub Pages 配信。新サイト移行時は https://www.kawasaki-big.com/wp-content/themes/kawasaki-big/img/... へ置換
+  - クラス名は kb- プレフィックスで衝突回避
+  - デザイン: 川崎ビッグ / CAPSULE & SAUNA（緑）／住所／SNS ｜ メニュー ｜ ご予約 ｜ キービジュアル
+  - リンク前に「—」ダッシュを ::before で付与
 -->
 <style>
-  /* ===== Kawasaki Big | 予約ページ フッター ===== */
   .kb-footer * { box-sizing: border-box; }
   .kb-footer {
     width: 100%;
@@ -27,12 +26,18 @@
 
   /* 左：ブランド */
   .kb-footer__brand-jp {
-    font-family: 'Zen Kaku Gothic New', sans-serif;
     font-size: 22px;
     font-weight: 900;
-    margin: 0 0 8px;
+    margin: 0 0 4px;
     color: #2c4a6e;
     letter-spacing: .04em;
+  }
+  .kb-footer__brand-en {
+    font-size: 12px;
+    font-weight: 700;
+    color: #3da657;
+    letter-spacing: .18em;
+    margin: 0 0 14px;
   }
   .kb-footer__brand-lead {
     font-size: 12px;
@@ -42,10 +47,18 @@
   }
   .kb-footer__addr {
     font-size: 13px;
-    line-height: 1.8;
+    line-height: 1.9;
     font-style: normal;
     color: #2c2c2c;
     margin-bottom: 18px;
+  }
+  .kb-footer__addr-sep {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #2c4a6e;
+    margin: 10px 0;
+    opacity: .4;
   }
   .kb-footer__addr a {
     color: #2c4a6e;
@@ -67,46 +80,57 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: #ffffff;
+    background: rgba(0,0,0,.06);
     color: #2c4a6e;
     text-decoration: none;
     transition: background .2s, color .2s;
   }
   .kb-footer__sns a:hover { background: #2c4a6e; color: #ffffff; }
-  .kb-footer__sns svg { width: 18px; height: 18px; }
+  .kb-footer__sns svg { width: 16px; height: 16px; }
 
   /* 中：列見出し + リンク */
   .kb-footer__col-title {
     font-size: 13px;
     font-weight: 700;
-    color: #2c4a6e;
-    margin: 0 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #2c4a6e;
-    letter-spacing: .08em;
+    color: #3da657;
+    margin: 0 0 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #3da657;
+    letter-spacing: .32em;
   }
   .kb-footer__links {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .kb-footer__links li { margin-bottom: 8px; }
+  .kb-footer__links li { margin-bottom: 12px; }
   .kb-footer__links a {
     color: #2c2c2c;
     text-decoration: none;
     font-size: 13px;
+    letter-spacing: .08em;
+    display: inline-flex;
+    align-items: center;
     transition: color .2s;
+  }
+  .kb-footer__links a::before {
+    content: "—";
+    margin-right: 10px;
+    color: #3da657;
+    font-weight: 500;
   }
   .kb-footer__links a:hover { color: #3da657; }
 
   /* 右：キービジュアル */
   .kb-footer__keyvisual {
     margin: 0;
+    text-align: center;
   }
   .kb-footer__keyvisual img {
     max-width: 100%;
     height: auto;
     display: block;
+    margin: 0 auto;
   }
 
   /* 下部コピーライト */
@@ -147,11 +171,13 @@
     <!-- 左：ブランド -->
     <div class="kb-footer__brand">
       <p class="kb-footer__brand-jp">川崎ビッグ</p>
+      <p class="kb-footer__brand-en">CAPSULE &amp; SAUNA</p>
       <p class="kb-footer__brand-lead">カプセル＆サウナ 川崎ビッグ</p>
 
       <address class="kb-footer__addr">
         〒210-0023<br>
-        神奈川県川崎市川崎区<br>小川町15-11<br>
+        神奈川県川崎市川崎区<br>小川町15-11
+        <span class="kb-footer__addr-sep"></span>
         <a href="tel:0442460008">TEL 044-246-0008</a><br>
         <span>24時間 年中無休</span>
       </address>
@@ -179,18 +205,18 @@
     <nav class="kb-footer__menu" aria-label="フッターナビゲーション">
       <h3 class="kb-footer__col-title">メニュー</h3>
       <ul class="kb-footer__links">
-        <li><a href="https://www.kawasaki-big.com/">ホーム</a></li>
-        <li><a href="https://www.kawasaki-big.com/spa_sauna">浴室・サウナ</a></li>
-        <li><a href="https://www.kawasaki-big.com/restaurant">レストラン</a></li>
-        <li><a href="https://www.kawasaki-big.com/bodycare">ボディケア</a></li>
-        <li><a href="https://www.kawasaki-big.com/hours_prices">営業時間・料金</a></li>
-        <li><a href="https://www.kawasaki-big.com/floor">館内案内</a></li>
-        <li><a href="https://www.kawasaki-big.com/access">アクセス</a></li>
-        <li><a href="https://www.kawasaki-big.com/inquiry">お問合せ</a></li>
+        <li><a href="http://kawasaki-big.com/">ホーム</a></li>
+        <li><a href="http://kawasaki-big.com/spa_sauna/">浴室・サウナ</a></li>
+        <li><a href="http://kawasaki-big.com/restaurant/">レストラン</a></li>
+        <li><a href="http://kawasaki-big.com/bodycare/">ボディケア</a></li>
+        <li><a href="http://kawasaki-big.com/hours_prices/">営業時間・料金</a></li>
+        <li><a href="http://kawasaki-big.com/floor/">館内案内</a></li>
+        <li><a href="http://kawasaki-big.com/access/">アクセス</a></li>
+        <li><a href="http://kawasaki-big.com/inquiry/">お問合せ</a></li>
       </ul>
     </nav>
 
-    <!-- 中右：RESERVATION（target=_blank なし） -->
+    <!-- 中右：RESERVATION -->
     <nav class="kb-footer__reserve" aria-label="ご予約メニュー">
       <h3 class="kb-footer__col-title">ご予約</h3>
       <ul class="kb-footer__links">
