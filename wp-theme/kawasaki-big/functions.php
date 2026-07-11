@@ -186,6 +186,38 @@ function kb_get_restaurant_items() {
     ];
 }
 
+/**
+ * ACF オプションページのフィールドを取得（fallback付き）。
+ */
+function kb_option($name, $fallback = '') {
+    if (!function_exists('get_field')) return $fallback;
+    $v = get_field($name, 'option');
+    return ($v !== null && $v !== '' && $v !== false) ? $v : $fallback;
+}
+
+/**
+ * ACF オプションページの image フィールドから URL を返す。
+ */
+function kb_option_image_url($name, $fallback_filename = '') {
+    $v = function_exists('get_field') ? get_field($name, 'option') : null;
+    if (is_array($v) && !empty($v['url'])) return esc_url($v['url']);
+    if (is_string($v) && $v !== '') return esc_url($v);
+    if (is_numeric($v)) {
+        $url = wp_get_attachment_image_url($v, 'full');
+        if ($url) return esc_url($url);
+    }
+    return $fallback_filename ? kb_img($fallback_filename) : '';
+}
+
+/**
+ * ポップアップ表示ON/OFF（true_false）。未設定/ACF無しは true（表示）。
+ */
+function kb_popup_enabled() {
+    if (!function_exists('get_field')) return true;
+    $v = get_field('popup_enabled', 'option');
+    return ($v === null) ? true : (bool) $v;
+}
+
 /* -----------------------------------------------------------------------
    Include ACF field group definitions
    ----------------------------------------------------------------------- */

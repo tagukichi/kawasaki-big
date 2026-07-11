@@ -253,3 +253,106 @@ acf_add_local_field_group([
         ],
     ],
 ]);
+
+
+/* =========================================================================
+   OPTIONS PAGE: サイト共通設定（全ページ共通の要素をここで管理）
+   ========================================================================= */
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page([
+        'page_title' => 'サイト共通設定',
+        'menu_title' => 'サイト共通設定',
+        'menu_slug'  => 'kb-site-settings',
+        'capability' => 'edit_posts',
+        'icon_url'   => 'dashicons-admin-generic',
+        'position'   => 59,
+        'redirect'   => false,
+    ]);
+}
+
+/* =========================================================================
+   FIELD GROUP 3: ベストレート保証ポップアップ（右下スライドイン）
+    location: 上記オプションページ
+   ========================================================================= */
+acf_add_local_field_group([
+    'key' => 'group_kb_popup',
+    'title' => 'ベストレート保証ポップアップ（右下）',
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'location' => [
+        [
+            ['param' => 'options_page', 'operator' => '==', 'value' => 'kb-site-settings'],
+        ],
+    ],
+    'fields' => [
+        [
+            'key' => 'field_kb_popup_enabled',
+            'label' => 'ポップアップを表示する',
+            'name' => 'popup_enabled',
+            'type' => 'true_false',
+            'ui' => 1,
+            'default_value' => 1,
+            'instructions' => 'OFFにすると右下のポップアップを非表示にします。',
+        ],
+        [
+            'key' => 'field_kb_popup_image',
+            'label' => 'ポップアップ画像',
+            'name' => 'popup_image',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => 'ポップアップ内に表示する画像。未設定の場合はテーマ内の既定画像が表示されます。',
+        ],
+        [
+            'key' => 'field_kb_popup_badge',
+            'label' => 'バッジ文言',
+            'name' => 'popup_badge',
+            'type' => 'text',
+            'default_value' => '公式が最安値',
+            'wrapper' => ['width' => '50'],
+        ],
+        [
+            'key' => 'field_kb_popup_lead',
+            'label' => 'リード文',
+            'name' => 'popup_lead',
+            'type' => 'text',
+            'default_value' => '川崎駅前 / 24時間営業',
+            'wrapper' => ['width' => '50'],
+        ],
+        [
+            'key' => 'field_kb_popup_label',
+            'label' => 'ラベル',
+            'name' => 'popup_label',
+            'type' => 'text',
+            'default_value' => 'ベストレート保証',
+            'wrapper' => ['width' => '50'],
+        ],
+        [
+            'key' => 'field_kb_popup_price',
+            'label' => '価格',
+            'name' => 'popup_price',
+            'type' => 'text',
+            'default_value' => '¥3,500',
+            'wrapper' => ['width' => '25'],
+        ],
+        [
+            'key' => 'field_kb_popup_price_note',
+            'label' => '価格の補足',
+            'name' => 'popup_price_note',
+            'type' => 'text',
+            'default_value' => '〜 / 1泊',
+            'wrapper' => ['width' => '25'],
+        ],
+        [
+            'key' => 'field_kb_popup_link',
+            'label' => 'リンク先URL',
+            'name' => 'popup_link',
+            'type' => 'url',
+            'instructions' => '「ご予約はこちら」ボタンのリンク先。未入力なら予約システムURL（デフォルト）。',
+        ],
+    ],
+]);
+

@@ -96,20 +96,34 @@ if (!defined('ABSPATH')) exit;
     <span class="c-pagetop__arrow" aria-hidden="true"></span>
   </button>
 
+  <?php
+  // --- ベストレート保証ポップアップ（ACF「サイト共通設定」から取得・未設定は既定値） ---
+  if (kb_popup_enabled()) :
+    $kb_popup_img   = kb_option_image_url('popup_image', '0T8A4965.JPG');
+    $kb_popup_badge = kb_option('popup_badge', '公式が最安値');
+    $kb_popup_lead  = kb_option('popup_lead', '川崎駅前 / 24時間営業');
+    $kb_popup_label = kb_option('popup_label', 'ベストレート保証');
+    $kb_popup_price = kb_option('popup_price', '¥3,500');
+    $kb_popup_note  = kb_option('popup_price_note', '〜 / 1泊');
+    $kb_popup_link  = kb_option('popup_link', kb_reserve_url());
+  ?>
   <!-- ベストレート保証 PCポップアップ（右下にスライドイン） -->
   <aside class="c-bestrate-popup" id="bestrate-popup" role="complementary" aria-label="ベストレート保証" aria-hidden="true">
     <button type="button" class="c-bestrate-popup__close" aria-label="閉じる" data-bestrate-close="1">×</button>
     <div class="c-bestrate-popup__inner">
-      <span class="c-bestrate-popup__badge">公式が最安値</span>
+      <?php if ($kb_popup_badge) : ?><span class="c-bestrate-popup__badge"><?php echo esc_html($kb_popup_badge); ?></span><?php endif; ?>
+      <?php if ($kb_popup_img) : ?>
       <div class="c-bestrate-popup__media">
-        <img src="https://www.kawasaki-big.com/spa_sauna/img/221212-01.jpg" alt="" loading="lazy" decoding="async" />
+        <img src="<?php echo esc_url($kb_popup_img); ?>" alt="" loading="lazy" decoding="async" />
       </div>
-      <p class="c-bestrate-popup__lead">川崎駅前 / 24時間営業</p>
-      <p class="c-bestrate-popup__label">ベストレート保証</p>
-      <p class="c-bestrate-popup__price">¥3,500<small>〜 / 1泊</small></p>
-      <a href="<?php echo kb_reserve_url(); ?>" class="c-bestrate-popup__cta">ご予約はこちら</a>
+      <?php endif; ?>
+      <?php if ($kb_popup_lead) : ?><p class="c-bestrate-popup__lead"><?php echo esc_html($kb_popup_lead); ?></p><?php endif; ?>
+      <?php if ($kb_popup_label) : ?><p class="c-bestrate-popup__label"><?php echo esc_html($kb_popup_label); ?></p><?php endif; ?>
+      <?php if ($kb_popup_price) : ?><p class="c-bestrate-popup__price"><?php echo esc_html($kb_popup_price); ?><small><?php echo esc_html($kb_popup_note); ?></small></p><?php endif; ?>
+      <a href="<?php echo esc_url($kb_popup_link); ?>" class="c-bestrate-popup__cta">ご予約はこちら</a>
     </div>
   </aside>
+  <?php endif; ?>
 
   <?php wp_footer(); ?>
 </body>
