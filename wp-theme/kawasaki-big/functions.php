@@ -219,6 +219,40 @@ function kb_popup_enabled() {
 }
 
 /* -----------------------------------------------------------------------
+   Customizer: フッターロゴ / キービジュアル画像
+   外観 → カスタマイズ → フッター設定 から画像を設定できる
+   ----------------------------------------------------------------------- */
+function kawasaki_big_customize_register($wp_customize) {
+    $wp_customize->add_section('kb_footer', [
+        'title'       => 'フッター設定',
+        'description' => 'フッター右側のロゴ／キービジュアル画像を設定します。',
+        'priority'    => 130,
+    ]);
+
+    $wp_customize->add_setting('kb_footer_logo', [
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kb_footer_logo', [
+        'label'       => 'フッターロゴ / キービジュアル画像',
+        'description' => '未設定の場合はテーマ内の foot_bottom.png を表示します。',
+        'section'     => 'kb_footer',
+        'settings'    => 'kb_footer_logo',
+    ]));
+}
+add_action('customize_register', 'kawasaki_big_customize_register');
+
+/**
+ * フッターのロゴ／キービジュアル画像URL（Customizer優先・未設定はテーマ内画像）。
+ */
+function kb_footer_logo_url() {
+    $url = get_theme_mod('kb_footer_logo', '');
+    return $url ? esc_url($url) : kb_img('foot_bottom.png');
+}
+
+/* -----------------------------------------------------------------------
    Include ACF field group definitions
    ----------------------------------------------------------------------- */
 $kb_acf = get_template_directory() . '/inc/acf-fields.php';

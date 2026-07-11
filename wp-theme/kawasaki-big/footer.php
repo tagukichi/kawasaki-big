@@ -76,9 +76,9 @@ if (!defined('ABSPATH')) exit;
         </ul>
       </nav>
 
-      <!-- 右：キービジュアル -->
+      <!-- 右：キービジュアル（外観→カスタマイズ→フッター設定 で変更可） -->
       <figure class="l-footer__keyvisual">
-        <img src="http://www.kawasaki-big.com/img/foot_bottom.png"
+        <img src="<?php echo kb_footer_logo_url(); ?>"
              alt="カプセル＆サウナ <?php bloginfo('name'); ?>"
              width="960" height="300"
              loading="lazy" decoding="async" />
