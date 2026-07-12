@@ -35,6 +35,12 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
+        <?php $kb_b_bc = kb_option_image_url('banner_bodycare_price', ''); if ($kb_b_bc) : ?>
+        <figure class="c-info-banner c-info-banner--full js-fade">
+          <img src="<?php echo esc_url($kb_b_bc); ?>" alt="ボディケア＆足つぼ＆スカルプケアのご利用料金" loading="lazy" decoding="async" />
+        </figure>
+        <?php endif; ?>
+
         <!-- ボディケア＆足つぼ コース -->
         <h3 class="c-heading js-fade" style="font-size:1.2rem; margin-top:2.5rem; margin-bottom:1rem;">ボディケア＆足つぼ</h3>
         <div class="c-bath-grid">
@@ -101,7 +107,13 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <div class="c-price-list">
+        <?php $kb_b_aka = kb_option_image_url('banner_akasuri', ''); if ($kb_b_aka) : ?>
+        <figure class="c-info-banner c-info-banner--full js-fade">
+          <img src="<?php echo esc_url($kb_b_aka); ?>" alt="アカスリご利用料金" loading="lazy" decoding="async" />
+        </figure>
+        <?php endif; ?>
+
+        <div class="c-price-list"<?php echo $kb_b_aka ? ' style="margin-top:2rem;"' : ''; ?>>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">
               A コース「基本コース」<span class="c-price-list__sub">30分</span>

@@ -35,7 +35,13 @@ $hero_sub   = kb_field('hero_sub', '24時間年中無休。あなたの時間に
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <div class="c-facility-list">
+        <?php $kb_b_hours = kb_option_image_url('banner_hours', ''); if ($kb_b_hours) : ?>
+        <figure class="c-info-banner c-info-banner--full js-fade">
+          <img src="<?php echo esc_url($kb_b_hours); ?>" alt="営業時間のご案内" loading="lazy" decoding="async" />
+        </figure>
+        <?php endif; ?>
+
+        <div class="c-facility-list" style="margin-top:2rem;">
           <div class="c-facility-card js-fade">
             <p class="c-facility-card__name">カプセル</p>
             <p class="c-facility-card__hours">PM 3:00 — AM 10:00</p>
@@ -246,6 +252,11 @@ $hero_sub   = kb_field('hero_sub', '24時間年中無休。あなたの時間に
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
+        <?php $kb_b_pay = kb_option_image_url('banner_payment', ''); if ($kb_b_pay) : ?>
+        <figure class="c-info-banner c-info-banner--full js-fade">
+          <img src="<?php echo esc_url($kb_b_pay); ?>" alt="お支払い方法（現金・各種クレジットカード・電子マネー）" loading="lazy" decoding="async" />
+        </figure>
+        <?php else : ?>
         <div class="c-notes js-fade">
           <ul class="c-notes__list">
             <li>現金</li>
@@ -253,6 +264,7 @@ $hero_sub   = kb_field('hero_sub', '24時間年中無休。あなたの時間に
             <li>各種電子マネー・QRコード決済</li>
           </ul>
         </div>
+        <?php endif; ?>
       </div>
     </section>
 

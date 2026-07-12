@@ -356,3 +356,80 @@ acf_add_local_field_group([
     ],
 ]);
 
+/* =========================================================================
+   FIELD GROUP 4: 各ページの画像バナー（旧サイトの外部画像を差し替える用）
+    location: サイト共通設定オプションページ
+    - 画像をアップロードすると各ページの該当箇所に表示されます
+    - 未設定の箇所は非表示（壊れ画像は出ません）
+   ========================================================================= */
+acf_add_local_field_group([
+    'key' => 'group_kb_page_banners',
+    'title' => '各ページの画像バナー',
+    'menu_order' => 1,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'location' => [
+        [
+            ['param' => 'options_page', 'operator' => '==', 'value' => 'kb-site-settings'],
+        ],
+    ],
+    'fields' => [
+        [
+            'key' => 'field_kb_banner_hours',
+            'label' => '営業時間・料金：営業時間のご案内 画像',
+            'name' => 'banner_hours',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '営業時間ページ上部に表示。未設定なら非表示（下の営業時間カードは常に表示）。',
+        ],
+        [
+            'key' => 'field_kb_banner_payment',
+            'label' => '営業時間・料金：お支払い方法 画像',
+            'name' => 'banner_payment',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => 'お支払い方法セクションに表示。未設定ならテキスト（現金／クレジット／電子マネー）を表示。',
+        ],
+        [
+            'key' => 'field_kb_banner_bodycare_price',
+            'label' => 'ボディケア：ボディケア＆足つぼ＆スカルプケア料金 画像',
+            'name' => 'banner_bodycare_price',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => 'ボディケアページの料金セクションに表示。未設定なら非表示（下のコース表は常に表示）。',
+        ],
+        [
+            'key' => 'field_kb_banner_akasuri',
+            'label' => 'ボディケア：アカスリ料金 画像',
+            'name' => 'banner_akasuri',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => 'アカスリ料金セクションに表示。未設定なら非表示（下の料金表は常に表示）。',
+        ],
+        [
+            'key' => 'field_kb_banner_floor_guide',
+            'label' => '館内案内：フロアガイド 画像',
+            'name' => 'banner_floor_guide',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '館内案内ページ上部のフロアガイド。未設定なら非表示（下のフロア構成は常に表示）。',
+        ],
+        [
+            'key' => 'field_kb_banner_spa_info',
+            'label' => '浴室・サウナ：お知らせバナー 画像',
+            'name' => 'banner_spa_info',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '浴室・サウナページ下部に1枚表示。未設定なら非表示。',
+        ],
+    ],
+]);
+

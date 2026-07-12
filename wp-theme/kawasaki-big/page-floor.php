@@ -27,6 +27,22 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
       </div>
     </section>
 
+    <!-- ====================== FLOOR GUIDE BANNER ====================== -->
+    <?php $kb_b_floor = kb_option_image_url('banner_floor_guide', ''); if ($kb_b_floor) : ?>
+    <section class="s-block" data-section="floor-guide" aria-label="フロアガイド">
+      <div class="l-container">
+        <header class="s-block__head">
+          <h2 class="c-heading js-fade">フロアガイド</h2>
+          <span class="c-accent-line" aria-hidden="true"></span>
+        </header>
+
+        <figure class="c-info-banner c-info-banner--full js-fade">
+          <img src="<?php echo esc_url($kb_b_floor); ?>" alt="館内フロアガイド" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </section>
+    <?php endif; ?>
+
     <!-- ====================== FLOOR TIMELINE + FACILITY HIGHLIGHTS ====================== -->
     <section class="s-block s-block--alt" data-section="floor-timeline" aria-label="フロア構成・各施設のご紹介">
       <div class="l-container">

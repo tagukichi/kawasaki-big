@@ -158,6 +158,17 @@ $hero_sub   = kb_field('hero_sub', '6つのお風呂と2つのサウナ。芯か
       </div>
     </section>
 
+    <!-- ====================== INFO BANNER（お知らせ画像を1枚） ====================== -->
+    <?php $kb_b_spa = kb_option_image_url('banner_spa_info', ''); if ($kb_b_spa) : ?>
+    <section class="s-block" data-section="info-banner" aria-label="お知らせ">
+      <div class="l-container">
+        <figure class="c-info-banner c-info-banner--full js-fade">
+          <img src="<?php echo esc_url($kb_b_spa); ?>" alt="お知らせ" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </section>
+    <?php endif; ?>
+
     <!-- ====================== NOTES ====================== -->
     <section class="s-block s-block--alt" data-section="notes" aria-label="ご利用上の注意">
       <div class="l-container">
