@@ -158,16 +158,6 @@ $hero_sub   = kb_field('hero_sub', '6つのお風呂と2つのサウナ。芯か
       </div>
     </section>
 
-    <!-- ====================== INFO BANNER（virus.jpg を1枚どーんと） ====================== -->
-    <section class="s-block" data-section="info-banner" aria-label="お知らせ">
-      <div class="l-container">
-        <figure class="c-info-banner c-info-banner--full js-fade">
-          <img src="https://www.kawasaki-big.com/spa_sauna/img/virus.jpg"
-               alt="新型コロナウイルス感染症対策について" loading="lazy" decoding="async" />
-        </figure>
-      </div>
-    </section>
-
     <!-- ====================== NOTES ====================== -->
     <section class="s-block s-block--alt" data-section="notes" aria-label="ご利用上の注意">
       <div class="l-container">

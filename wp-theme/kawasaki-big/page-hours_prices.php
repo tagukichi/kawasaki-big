@@ -35,12 +35,7 @@ $hero_sub   = kb_field('hero_sub', '24時間年中無休。あなたの時間に
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <figure class="c-info-banner c-info-banner--full js-fade">
-          <img src="https://www.kawasaki-big.com/hours_prices/img/img01.png"
-               alt="営業時間のご案内" loading="lazy" decoding="async" />
-        </figure>
-
-        <div class="c-facility-list" style="margin-top:2rem;">
+        <div class="c-facility-list">
           <div class="c-facility-card js-fade">
             <p class="c-facility-card__name">カプセル</p>
             <p class="c-facility-card__hours">PM 3:00 — AM 10:00</p>
@@ -251,11 +246,13 @@ $hero_sub   = kb_field('hero_sub', '24時間年中無休。あなたの時間に
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <figure class="c-info-banner c-info-banner--full js-fade">
-          <img src="https://www.kawasaki-big.com/hours_prices/img/card.png"
-               alt="お支払い方法（現金・各種クレジットカード・電子マネー）"
-               loading="lazy" decoding="async" />
-        </figure>
+        <div class="c-notes js-fade">
+          <ul class="c-notes__list">
+            <li>現金</li>
+            <li>各種クレジットカード（VISA / Mastercard / JCB / AMEX / Diners ほか）</li>
+            <li>各種電子マネー・QRコード決済</li>
+          </ul>
+        </div>
       </div>
     </section>
 

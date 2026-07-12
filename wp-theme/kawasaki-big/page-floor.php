@@ -27,21 +27,6 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
       </div>
     </section>
 
-    <!-- ====================== FLOOR GUIDE BANNER ====================== -->
-    <section class="s-block" data-section="floor-guide" aria-label="フロアガイド">
-      <div class="l-container">
-        <header class="s-block__head">
-          <h2 class="c-heading js-fade">フロアガイド</h2>
-          <span class="c-accent-line" aria-hidden="true"></span>
-        </header>
-
-        <figure class="c-info-banner c-info-banner--full js-fade">
-          <img src="https://www.kawasaki-big.com/floor/img/floorguide.jpg"
-               alt="館内フロアガイド" loading="lazy" decoding="async" />
-        </figure>
-      </div>
-    </section>
-
     <!-- ====================== FLOOR TIMELINE + FACILITY HIGHLIGHTS ====================== -->
     <section class="s-block s-block--alt" data-section="floor-timeline" aria-label="フロア構成・各施設のご紹介">
       <div class="l-container">
@@ -62,7 +47,7 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
                 首都圏最大級、358室のカプセルルーム。5・6階は禁煙フロア、4階にはビールの自動販売機を完備。出張、深夜の休息、観光の拠点として、お一人様でも安心してご利用いただけます。
               </p>
               <div class="c-floor-row__media">
-                <img src="https://www.kawasaki-big.com/floor/img/capsule01.jpg"
+                <img src="<?php echo kb_img('0T8A4965.JPG'); ?>"
                      alt="3F〜7F カプセルルーム" loading="lazy" decoding="async" />
               </div>
             </div>
@@ -78,7 +63,7 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
                 和・洋・中華、四季折々の100種類以上のメニューを24時間ご提供。深夜の一杯から早朝のモーニングまで、いつでもお楽しみいただけます。
               </p>
               <div class="c-floor-row__media">
-                <img src="https://www.kawasaki-big.com/floor/img/restaurant01.jpg"
+                <img src="<?php echo kb_img('restaurant.png'); ?>"
                      alt="2F レストラン" loading="lazy" decoding="async" />
               </div>
             </div>
@@ -94,7 +79,7 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
                 熟練のスタッフによるボディケア・足つぼ・スカルプケア・オイルリンパ。サウナ後の身体をやさしくほぐして、深い休息へと導きます。
               </p>
               <div class="c-floor-row__media">
-                <img src="https://www.kawasaki-big.com/floor/img/bodycare02.jpg"
+                <img src="<?php echo kb_img('img03-03.jpg'); ?>"
                      alt="2F ボディケア" loading="lazy" decoding="async" />
               </div>
             </div>
@@ -111,7 +96,7 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
                 <strong>2F：禁煙</strong> ／ <strong>1F：喫煙</strong> ／ <strong>B1F：禁煙</strong>
               </p>
               <div class="c-floor-row__media">
-                <img src="https://www.kawasaki-big.com/floor/img/restroom.jpg"
+                <img src="<?php echo kb_img('img02-07.jpg'); ?>"
                      alt="休憩室" loading="lazy" decoding="async" />
               </div>
             </div>
@@ -127,7 +112,7 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
                 7つのお風呂と本格フィンランド式サウナ、水風呂を備えた、川崎ビッグの中心。富士見風呂、薬風呂、ラドン風呂など、多彩な湯処で「ととのう」体験を。
               </p>
               <div class="c-floor-row__media">
-                <img src="https://www.kawasaki-big.com/floor/img/spa.jpg"
+                <img src="<?php echo kb_img('IMG_0218.JPG'); ?>"
                      alt="B2F 大浴場 / サウナ" loading="lazy" decoding="async" />
               </div>
             </div>

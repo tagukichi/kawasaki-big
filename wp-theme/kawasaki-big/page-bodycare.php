@@ -35,12 +35,6 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <figure class="c-info-banner c-info-banner--full js-fade">
-          <img src="https://www.kawasaki-big.com/bodycare/img/img03.jpg"
-               alt="ボディケア＆足つぼ＆スカルプケアのご利用料金"
-               loading="lazy" decoding="async" />
-        </figure>
-
         <!-- ボディケア＆足つぼ コース -->
         <h3 class="c-heading js-fade" style="font-size:1.2rem; margin-top:2.5rem; margin-bottom:1rem;">ボディケア＆足つぼ</h3>
         <div class="c-bath-grid">
@@ -107,13 +101,7 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
           <span class="c-accent-line" aria-hidden="true"></span>
         </header>
 
-        <figure class="c-info-banner c-info-banner--full js-fade">
-          <img src="https://www.kawasaki-big.com/bodycare/img/img04.jpg"
-               alt="アカスリご利用料金"
-               loading="lazy" decoding="async" />
-        </figure>
-
-        <div class="c-price-list" style="margin-top:2rem;">
+        <div class="c-price-list">
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">
               A コース「基本コース」<span class="c-price-list__sub">30分</span>
