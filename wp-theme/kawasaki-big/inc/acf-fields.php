@@ -560,3 +560,72 @@ acf_add_local_field_group([
     ],
 ]);
 
+
+/* =========================================================================
+   FIELD GROUP 6: 館内案内ページ設定（各フロアの写真）
+    location: 固定ページ（スラッグ = floor）の編集画面
+    - 各フロアの写真を差し替え可能
+    - 未設定なら既定画像（休憩室は未設定時 非表示）
+   ========================================================================= */
+acf_add_local_field_group([
+    'key' => 'group_kb_floor',
+    'title' => '館内案内ページ設定（各フロアの写真）',
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'location' => [
+        [
+            ['param' => 'kb_page_slug', 'operator' => '==', 'value' => 'floor'],
+        ],
+    ],
+    'fields' => [
+        [
+            'key' => 'field_kb_floor_capsule',
+            'label' => '3F–7F カプセルルーム 写真',
+            'name' => 'floor_img_capsule',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '未設定なら既定画像を表示。',
+        ],
+        [
+            'key' => 'field_kb_floor_restaurant',
+            'label' => '2F レストラン 写真',
+            'name' => 'floor_img_restaurant',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '未設定なら既定画像を表示。',
+        ],
+        [
+            'key' => 'field_kb_floor_bodycare',
+            'label' => '2F ボディケア 写真',
+            'name' => 'floor_img_bodycare',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '未設定なら既定画像を表示。',
+        ],
+        [
+            'key' => 'field_kb_floor_restroom',
+            'label' => '休憩室 写真',
+            'name' => 'floor_img_restroom',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '休憩室の実写真をアップしてください。未設定の間は画像を表示しません（誤った画像を出さないため）。',
+        ],
+        [
+            'key' => 'field_kb_floor_spa',
+            'label' => 'B2F 大浴場 / サウナ 写真',
+            'name' => 'floor_img_spa',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '未設定なら既定画像を表示。',
+        ],
+    ],
+]);
+

@@ -11,6 +11,13 @@ $kb_default_title = ($kb_page_obj && !empty($kb_page_obj->post_title)) ? $kb_pag
 $hero_bg    = kb_field_image_url('hero_bg', '0T8A4965.JPG');
 $hero_title = kb_field('hero_title', $kb_default_title);
 $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のためのすべて。');
+
+// --- ACF: 各フロアの写真（固定ページ編集から差し替え可）---
+$floor_img_capsule    = kb_field_image_url('floor_img_capsule', '0T8A4965.JPG');
+$floor_img_restaurant = kb_field_image_url('floor_img_restaurant', 'restaurant.png');
+$floor_img_bodycare   = kb_field_image_url('floor_img_bodycare', 'img03-03.jpg');
+$floor_img_restroom   = kb_field_image_url('floor_img_restroom', '');  // 実写真をアップするまで非表示
+$floor_img_spa        = kb_field_image_url('floor_img_spa', 'IMG_0218.JPG');
 ?>
 <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
       <div class="s-page-hero__bg" style="background-image: url('<?php echo esc_url($hero_bg); ?>');" aria-hidden="true"></div>
@@ -60,12 +67,13 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
             <div class="c-floor-row__body">
               <h3 class="c-floor-row__title">カプセルルーム</h3>
               <p class="c-floor-row__desc">
-                首都圏最大級、358室のカプセルルーム。5・6階は禁煙フロア、4階にはビールの自動販売機を完備。出張、深夜の休息、観光の拠点として、お一人様でも安心してご利用いただけます。
+                首都圏最大級、358室のカプセルルーム。全館禁煙（喫煙は7階の喫煙ブースのみ）、4階にはビールの自動販売機を完備。出張、深夜の休息、観光の拠点として、お一人様でも安心してご利用いただけます。
               </p>
+              <?php if ($floor_img_capsule) : ?>
               <div class="c-floor-row__media">
-                <img src="<?php echo kb_img('0T8A4965.JPG'); ?>"
-                     alt="3F〜7F カプセルルーム" loading="lazy" decoding="async" />
+                <img src="<?php echo esc_url($floor_img_capsule); ?>" alt="3F〜7F カプセルルーム" loading="lazy" decoding="async" />
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -78,10 +86,11 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
               <p class="c-floor-row__desc">
                 和・洋・中華、四季折々の100種類以上のメニューを24時間ご提供。深夜の一杯から早朝のモーニングまで、いつでもお楽しみいただけます。
               </p>
+              <?php if ($floor_img_restaurant) : ?>
               <div class="c-floor-row__media">
-                <img src="<?php echo kb_img('restaurant.png'); ?>"
-                     alt="2F レストラン" loading="lazy" decoding="async" />
+                <img src="<?php echo esc_url($floor_img_restaurant); ?>" alt="2F レストラン" loading="lazy" decoding="async" />
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -94,10 +103,11 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
               <p class="c-floor-row__desc">
                 熟練のスタッフによるボディケア・足つぼ・スカルプケア・オイルリンパ。サウナ後の身体をやさしくほぐして、深い休息へと導きます。
               </p>
+              <?php if ($floor_img_bodycare) : ?>
               <div class="c-floor-row__media">
-                <img src="<?php echo kb_img('img03-03.jpg'); ?>"
-                     alt="2F ボディケア" loading="lazy" decoding="async" />
+                <img src="<?php echo esc_url($floor_img_bodycare); ?>" alt="2F ボディケア" loading="lazy" decoding="async" />
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -108,13 +118,13 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
             <div class="c-floor-row__body">
               <h3 class="c-floor-row__title">休憩室</h3>
               <p class="c-floor-row__desc">
-                リクライニングチェアでくつろげる休憩室を3フロアに完備。お好みに合わせてお選びいただけます。<br />
-                <strong>2F：禁煙</strong> ／ <strong>1F：喫煙</strong> ／ <strong>B1F：禁煙</strong>
+                リクライニングチェアでくつろげる休憩室を 2F・1F・B1F の3フロアに完備。お好みに合わせてお選びいただけます。（全館禁煙）
               </p>
+              <?php if ($floor_img_restroom) : ?>
               <div class="c-floor-row__media">
-                <img src="<?php echo kb_img('img02-07.jpg'); ?>"
-                     alt="休憩室" loading="lazy" decoding="async" />
+                <img src="<?php echo esc_url($floor_img_restroom); ?>" alt="休憩室" loading="lazy" decoding="async" />
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -127,10 +137,11 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
               <p class="c-floor-row__desc">
                 7つのお風呂と本格フィンランド式サウナ、水風呂を備えた、川崎ビッグの中心。富士見風呂、薬風呂、ラドン風呂など、多彩な湯処で「ととのう」体験を。
               </p>
+              <?php if ($floor_img_spa) : ?>
               <div class="c-floor-row__media">
-                <img src="<?php echo kb_img('IMG_0218.JPG'); ?>"
-                     alt="B2F 大浴場 / サウナ" loading="lazy" decoding="async" />
+                <img src="<?php echo esc_url($floor_img_spa); ?>" alt="B2F 大浴場 / サウナ" loading="lazy" decoding="async" />
               </div>
+              <?php endif; ?>
             </div>
           </div>
 
@@ -152,7 +163,7 @@ $hero_sub   = kb_field('hero_sub', '7フロアにわたる、休息のための�
             <li>カプセルご宿泊のお客様は、サウナを無料でご利用いただけます。</li>
             <li>大浴場・サウナの清掃時間は 11:00〜12:00 です。この時間帯はご利用いただけません。</li>
             <li>ボディケアは 11:00〜翌3:30、レストランは 24時間営業です。</li>
-            <li>5・6階は禁煙フロア、その他のカプセルフロアでは喫煙可となっております。</li>
+            <li>全館禁煙です。喫煙は7階の喫煙ブースのみご利用いただけます。</li>
             <li>タトゥー・刺青のあるお客様の大浴場ご利用はご遠慮いただいております。</li>
           </ul>
         </div>
