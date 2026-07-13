@@ -433,3 +433,130 @@ acf_add_local_field_group([
     ],
 ]);
 
+
+/* =========================================================================
+   CUSTOM LOCATION RULE: ページスラッグ
+    固定ページのスラッグでフィールドグループを表示できるようにする
+    （page-{slug}.php テンプレートに対して、固定ページ編集画面で編集可能に）
+   ========================================================================= */
+add_filter('acf/location/rule_types', function ($choices) {
+    $choices['ページ']['kb_page_slug'] = 'ページスラッグ';
+    return $choices;
+});
+add_filter('acf/location/rule_values/kb_page_slug', function ($choices) {
+    $pages = get_pages();
+    if ($pages) {
+        foreach ($pages as $p) {
+            $choices[$p->post_name] = $p->post_name . '（' . $p->post_title . '）';
+        }
+    }
+    return $choices;
+});
+add_filter('acf/location/rule_match/kb_page_slug', function ($match, $rule, $options) {
+    $post_id = !empty($options['post_id']) ? $options['post_id'] : 0;
+    if (!$post_id || !is_numeric($post_id)) return false;
+    $slug = get_post_field('post_name', (int) $post_id);
+    if ($rule['operator'] === '==') return ($slug === $rule['value']);
+    if ($rule['operator'] === '!=') return ($slug !== $rule['value']);
+    return $match;
+}, 10, 3);
+
+
+/* =========================================================================
+   FIELD GROUP 5: レストランページ設定
+    location: 固定ページ（スラッグ = restaurant）の編集画面
+    - おすすめメニュー（画像＋名前・繰り返し）
+    - 季節のメニュー（バナー画像・繰り返し）
+    - 未入力なら現状の内容がそのまま表示されます
+   ========================================================================= */
+acf_add_local_field_group([
+    'key' => 'group_kb_restaurant',
+    'title' => 'レストランページ設定',
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'location' => [
+        [
+            ['param' => 'kb_page_slug', 'operator' => '==', 'value' => 'restaurant'],
+        ],
+    ],
+    'fields' => [
+
+        /* --- おすすめメニュー --- */
+        [
+            'key' => 'field_kb_rest_menu_tab',
+            'label' => 'おすすめメニュー',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_kb_restaurant_menu',
+            'label' => 'おすすめメニュー（画像＋名前）',
+            'name' => 'restaurant_menu',
+            'type' => 'repeater',
+            'instructions' => '上から順に表示されます。番号（01,02…）は自動採番。未入力の場合は現状の6品が表示されます。',
+            'min' => 0,
+            'max' => 12,
+            'layout' => 'block',
+            'button_label' => 'メニューを追加',
+            'sub_fields' => [
+                [
+                    'key' => 'field_kb_rest_menu_image',
+                    'label' => '画像',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'return_format' => 'url',
+                    'preview_size' => 'medium',
+                    'wrapper' => ['width' => '40'],
+                ],
+                [
+                    'key' => 'field_kb_rest_menu_name',
+                    'label' => 'メニュー名',
+                    'name' => 'name',
+                    'type' => 'text',
+                    'wrapper' => ['width' => '60'],
+                ],
+            ],
+        ],
+
+        /* --- 季節のメニュー（バナー） --- */
+        [
+            'key' => 'field_kb_rest_seasonal_tab',
+            'label' => '季節のメニュー',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_kb_restaurant_seasonal',
+            'label' => '季節のメニュー バナー画像',
+            'name' => 'restaurant_seasonal',
+            'type' => 'repeater',
+            'instructions' => '横並びで表示されるバナー画像。未入力の場合は現状の3枚が表示されます。',
+            'min' => 0,
+            'max' => 9,
+            'layout' => 'block',
+            'button_label' => 'バナーを追加',
+            'sub_fields' => [
+                [
+                    'key' => 'field_kb_rest_seasonal_image',
+                    'label' => '画像',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'return_format' => 'url',
+                    'preview_size' => 'medium',
+                    'wrapper' => ['width' => '60'],
+                ],
+                [
+                    'key' => 'field_kb_rest_seasonal_alt',
+                    'label' => '説明（代替テキスト）',
+                    'name' => 'alt',
+                    'type' => 'text',
+                    'wrapper' => ['width' => '40'],
+                ],
+            ],
+        ],
+    ],
+]);
+

@@ -11,6 +11,37 @@ $kb_default_title = ($kb_page_obj && !empty($kb_page_obj->post_title)) ? $kb_pag
 $hero_bg    = kb_field_image_url('hero_bg', 'restaurant.png');
 $hero_title = kb_field('hero_title', $kb_default_title);
 $hero_sub   = kb_field('hero_sub', '和・洋・中華、四季折々の100種類以上。');
+
+// --- ACF: おすすめメニュー（未設定なら現状6品）---
+$kb_menu = function_exists('get_field') ? get_field('restaurant_menu') : null;
+if (!is_array($kb_menu) || empty($kb_menu)) {
+    $kb_menu = [
+        ['image' => kb_img('251117aburamazesoba.jxl.jpg'), 'name' => '油混ぜそば'],
+        ['image' => kb_img('251117ikaten.jpg'),            'name' => 'やわらかイカ天'],
+        ['image' => kb_img('220804_02.JPG'),               'name' => 'がぶのみヤクルト VS ヤクマンV'],
+        ['image' => kb_img('220804_03.JPG'),               'name' => 'オロポ・オロヤク'],
+        ['image' => kb_img('250802kakigori.jpg'),          'name' => 'かき氷（カルピス）'],
+        ['image' => kb_img('250802ryomen.jpg'),            'name' => '涼麺（夏季限定）'],
+    ];
+}
+
+// --- ACF: 季節のメニュー バナー（未設定なら現状3枚）---
+$kb_seasonal = function_exists('get_field') ? get_field('restaurant_seasonal') : null;
+if (!is_array($kb_seasonal) || empty($kb_seasonal)) {
+    $kb_seasonal = [
+        ['image' => kb_img('230707_restaurant_natsu.jpg'), 'alt' => '夏を味わうメニュー'],
+        ['image' => kb_img('230911_restaurant_aki.jpg'),   'alt' => '秋を味わうメニュー'],
+        ['image' => kb_img('220804_01.JPG'),               'alt' => '夏限定 冷やしメニュー'],
+    ];
+}
+
+// ACF image サブフィールド（URL文字列 or 配列）を URL に正規化
+if (!function_exists('kb_norm_img')) {
+    function kb_norm_img($v) {
+        if (is_array($v)) return $v['url'] ?? '';
+        return is_string($v) ? $v : '';
+    }
+}
 ?>
 <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
       <div class="s-page-hero__bg" style="background-image: url('<?php echo esc_url($hero_bg); ?>');" aria-hidden="true"></div>
@@ -49,65 +80,23 @@ $hero_sub   = kb_field('hero_sub', '和・洋・中華、四季折々の100種�
         </header>
 
         <div class="c-food-grid">
+          <?php foreach ($kb_menu as $i => $kb_item) :
+            $kb_img_url = kb_norm_img($kb_item['image'] ?? '');
+            $kb_name    = $kb_item['name'] ?? '';
+            if (!$kb_img_url && !$kb_name) continue;
+          ?>
           <article class="c-food-card js-fade">
             <figure class="c-food-card__figure">
-              <img src="<?php echo kb_img('251117aburamazesoba.jxl.jpg'); ?>" alt="油混ぜそば" loading="lazy" decoding="async" width="600" height="600" />
+              <?php if ($kb_img_url) : ?>
+              <img src="<?php echo esc_url($kb_img_url); ?>" alt="<?php echo esc_attr($kb_name); ?>" loading="lazy" decoding="async" width="600" height="600" />
+              <?php endif; ?>
             </figure>
             <div class="c-food-card__caption">
-              <span class="c-food-card__num">01</span>
-              <h3 class="c-food-card__name">油混ぜそば</h3>
+              <span class="c-food-card__num"><?php echo esc_html(sprintf('%02d', $i + 1)); ?></span>
+              <h3 class="c-food-card__name"><?php echo esc_html($kb_name); ?></h3>
             </div>
           </article>
-
-          <article class="c-food-card js-fade">
-            <figure class="c-food-card__figure">
-              <img src="<?php echo kb_img('251117ikaten.jpg'); ?>" alt="やわらかイカ天" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="c-food-card__caption">
-              <span class="c-food-card__num">02</span>
-              <h3 class="c-food-card__name">やわらかイカ天</h3>
-            </div>
-          </article>
-
-          <article class="c-food-card js-fade">
-            <figure class="c-food-card__figure">
-              <img src="<?php echo kb_img('220804_02.JPG'); ?>" alt="がぶのみヤクルト VS ヤクマンV" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="c-food-card__caption">
-              <span class="c-food-card__num">03</span>
-              <h3 class="c-food-card__name">がぶのみヤクルト VS ヤクマンV</h3>
-            </div>
-          </article>
-
-          <article class="c-food-card js-fade">
-            <figure class="c-food-card__figure">
-              <img src="<?php echo kb_img('220804_03.JPG'); ?>" alt="オロポ・オロヤク" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="c-food-card__caption">
-              <span class="c-food-card__num">04</span>
-              <h3 class="c-food-card__name">オロポ・オロヤク</h3>
-            </div>
-          </article>
-
-          <article class="c-food-card js-fade">
-            <figure class="c-food-card__figure">
-              <img src="<?php echo kb_img('250802kakigori.jpg'); ?>" alt="かき氷（カルピス・巨峰・白桃）" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="c-food-card__caption">
-              <span class="c-food-card__num">05</span>
-              <h3 class="c-food-card__name">かき氷（カルピス）</h3>
-            </div>
-          </article>
-
-          <article class="c-food-card js-fade">
-            <figure class="c-food-card__figure">
-              <img src="<?php echo kb_img('250802ryomen.jpg'); ?>" alt="涼麺（夏季限定）" loading="lazy" decoding="async" width="600" height="600" />
-            </figure>
-            <div class="c-food-card__caption">
-              <span class="c-food-card__num">06</span>
-              <h3 class="c-food-card__name">涼麺（夏季限定）</h3>
-            </div>
-          </article>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
@@ -121,15 +110,15 @@ $hero_sub   = kb_field('hero_sub', '和・洋・中華、四季折々の100種�
         </header>
 
         <div class="c-info-banners">
+          <?php foreach ($kb_seasonal as $kb_b) :
+            $kb_b_url = kb_norm_img($kb_b['image'] ?? '');
+            $kb_b_alt = $kb_b['alt'] ?? '';
+            if (!$kb_b_url) continue;
+          ?>
           <figure class="c-info-banner js-fade">
-            <img src="<?php echo kb_img('230707_restaurant_natsu.jpg'); ?>" alt="夏を味わうメニュー" loading="lazy" decoding="async" />
+            <img src="<?php echo esc_url($kb_b_url); ?>" alt="<?php echo esc_attr($kb_b_alt); ?>" loading="lazy" decoding="async" />
           </figure>
-          <figure class="c-info-banner js-fade">
-            <img src="<?php echo kb_img('230911_restaurant_aki.jpg'); ?>" alt="秋を味わうメニュー" loading="lazy" decoding="async" />
-          </figure>
-          <figure class="c-info-banner js-fade">
-            <img src="<?php echo kb_img('220804_01.JPG'); ?>" alt="夏限定 冷やしメニュー" loading="lazy" decoding="async" />
-          </figure>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
