@@ -152,15 +152,15 @@ $hero_sub   = kb_field('hero_sub', '24時間年中無休。あなたの時間に
         <div class="c-price-list">
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">クイック<span class="c-price-list__sub">20分</span></span>
-            <span class="c-price-list__price">¥1,980</span>
+            <span class="c-price-list__price">¥2,300</span>
           </div>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">ショート<span class="c-price-list__sub">40分</span></span>
-            <span class="c-price-list__price">¥3,600</span>
+            <span class="c-price-list__price">¥3,980</span>
           </div>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">レギュラー<span class="c-price-list__sub">60分</span></span>
-            <span class="c-price-list__price">¥5,300</span>
+            <span class="c-price-list__price">¥5,800</span>
           </div>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">オイルコース<span class="c-price-list__sub">20分〜</span></span>

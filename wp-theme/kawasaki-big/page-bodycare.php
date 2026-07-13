@@ -46,31 +46,31 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
         <div class="c-bath-grid">
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
-              <h3 class="c-bath-card__title">クイックコース<br /><span class="c-bath-card__meta">20分 / ¥1,980</span></h3>
+              <h3 class="c-bath-card__title">クイックコース<br /><span class="c-bath-card__meta">20分 / ¥2,300</span></h3>
               <p class="c-bath-card__desc">足裏または部分対応。サクッと疲れをリセットしたい方におすすめ。</p>
             </div>
           </article>
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
-              <h3 class="c-bath-card__title">ショートコース<br /><span class="c-bath-card__meta">40分 / ¥3,600</span></h3>
+              <h3 class="c-bath-card__title">ショートコース<br /><span class="c-bath-card__meta">40分 / ¥3,980</span></h3>
               <p class="c-bath-card__desc">うつぶせまたは足裏中心。仕事終わりのリラックスに。</p>
             </div>
           </article>
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
-              <h3 class="c-bath-card__title">レギュラーコース<br /><span class="c-bath-card__meta">60分 / ¥5,300</span></h3>
+              <h3 class="c-bath-card__title">レギュラーコース<br /><span class="c-bath-card__meta">60分 / ¥5,800</span></h3>
               <p class="c-bath-card__desc">全身対応。じっくりと身体全体をほぐしたい方に。</p>
             </div>
           </article>
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
-              <h3 class="c-bath-card__title">ロングコース<br /><span class="c-bath-card__meta">80分 / ¥7,000</span></h3>
+              <h3 class="c-bath-card__title">ロングコース<br /><span class="c-bath-card__meta">80分 / ¥7,500</span></h3>
               <p class="c-bath-card__desc">ボディ＋足裏セット推奨。芯までほぐす贅沢な時間。</p>
             </div>
           </article>
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
-              <h3 class="c-bath-card__title">VIPコース<br /><span class="c-bath-card__meta">120分 / ¥10,000</span></h3>
+              <h3 class="c-bath-card__title">VIPコース<br /><span class="c-bath-card__meta">120分 / ¥11,000</span></h3>
               <p class="c-bath-card__desc">ボディ＋足裏セット推奨。最上級のリラクゼーション体験を。</p>
             </div>
           </article>
@@ -81,19 +81,19 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
         <div class="c-price-list">
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">スカルプコース<span class="c-price-list__sub">20分</span></span>
-            <span class="c-price-list__price">¥2,500〜</span>
+            <span class="c-price-list__price">¥2,500</span>
           </div>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">オイルリンパ 背面コース<span class="c-price-list__sub">40分</span></span>
-            <span class="c-price-list__price">¥5,000〜</span>
+            <span class="c-price-list__price">¥5,200</span>
           </div>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">オイルリンパ 全身コース<span class="c-price-list__sub">60分</span></span>
-            <span class="c-price-list__price">¥7,500〜</span>
+            <span class="c-price-list__price">¥7,500</span>
           </div>
           <div class="c-price-list__item js-fade">
             <span class="c-price-list__label">オイルリンパ VIPコース<span class="c-price-list__sub">80分</span></span>
-            <span class="c-price-list__price">¥12,000</span>
+            <span class="c-price-list__price">¥9,800</span>
           </div>
         </div>
       </div>
