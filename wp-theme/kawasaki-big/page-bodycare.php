@@ -65,13 +65,13 @@ $hero_sub   = kb_field('hero_sub', '日々の疲れを、専門の手で。2F・
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
               <h3 class="c-bath-card__title">ロングコース<br /><span class="c-bath-card__meta">80分 / ¥7,500</span></h3>
-              <p class="c-bath-card__desc">ボディ＋足裏セット推奨。芯までほぐす贅沢な時間。</p>
+              <p class="c-bath-card__desc">ボディと足裏のセットコース。芯までほぐす贅沢な時間。※ボディケアのみでも受けられます。</p>
             </div>
           </article>
           <article class="c-bath-card js-fade">
             <div class="c-bath-card__body">
               <h3 class="c-bath-card__title">VIPコース<br /><span class="c-bath-card__meta">120分 / ¥11,000</span></h3>
-              <p class="c-bath-card__desc">ボディ＋足裏セット推奨。最上級のリラクゼーション体験を。</p>
+              <p class="c-bath-card__desc">ボディと足裏のセットコース。最上級のリラクゼーション体験を。※ボディケアのみでも受けられます。</p>
             </div>
           </article>
         </div>
