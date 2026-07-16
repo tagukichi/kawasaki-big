@@ -96,6 +96,13 @@ if (!defined('ABSPATH')) exit;
     <span class="c-pagetop__arrow" aria-hidden="true"></span>
   </button>
 
+  <!-- 常設 ご予約ボタン（SP=下部バー / PC=左下フロート） -->
+  <a href="<?php echo kb_reserve_url(); ?>" class="c-reserve-fab" aria-label="ベストレート保証｜ご予約はこちら">
+    <span class="c-reserve-fab__badge">ベストレート保証</span>
+    <span class="c-reserve-fab__main">ご予約はこちら</span>
+    <span class="c-reserve-fab__arrow" aria-hidden="true">→</span>
+  </a>
+
   <?php
   // --- ベストレート保証ポップアップ（ACF「サイト共通設定」から取得・未設定は既定値） ---
   if (kb_popup_enabled()) :
