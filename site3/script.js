@@ -176,60 +176,67 @@
      ------------------------------------------------------------------ */
   (function () {
     const popup = document.querySelector('.c-bestrate-popup');
-    if (!popup) return;
+    const fab   = document.querySelector('.c-reserve-fab');
 
     const STORE_KEY = 'kb_bestrate_dismissed_at';
     const SUPPRESS_MS = 60 * 60 * 1000; // 1 hour
 
-    function isDesktop() {
+    function isDesktopPopup() {
       return window.matchMedia('(min-width: 1280px)').matches;
     }
     function isHome() {
       const p = location.pathname.replace(/\/+$/, '');
       return p === '' || p.endsWith('/index.html') || p.endsWith('/index') || p === '/site3';
     }
+    function showFab() { if (fab) fab.classList.add('is-shown'); }
+    function hideFab() { if (fab) fab.classList.remove('is-shown'); }
+
     function open() {
+      if (!popup) return;
       popup.classList.add('is-open');
       popup.setAttribute('aria-hidden', 'false');
-      // 右下の小型ポップアップなので body スクロールはロックしない
+      hideFab();
     }
     function close() {
-      popup.classList.remove('is-open');
-      popup.setAttribute('aria-hidden', 'true');
+      if (popup) {
+        popup.classList.remove('is-open');
+        popup.setAttribute('aria-hidden', 'true');
+      }
       if (!isHome()) {
         try { localStorage.setItem(STORE_KEY, String(Date.now())); } catch (e) {}
       }
+      showFab();
     }
 
-    if (!isDesktop()) return;
+    if (popup) {
+      popup.addEventListener('click', function (e) {
+        const t = e.target;
+        if (t && (t.dataset.bestrateClose === '1' || t.closest('[data-bestrate-close="1"]'))) {
+          close();
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
+      });
+    }
 
-    function tryShow() {
-      // 少し遅延させてスライドイン演出を見せる
+    var willShowPopup = false;
+    if (popup && isDesktopPopup()) {
+      if (isHome()) {
+        try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+        willShowPopup = true;
+      } else {
+        var dismissedAt = 0;
+        try { dismissedAt = parseInt(localStorage.getItem(STORE_KEY) || '0', 10); } catch (e) {}
+        if (!dismissedAt || (Date.now() - dismissedAt) > SUPPRESS_MS) willShowPopup = true;
+      }
+    }
+
+    if (willShowPopup) {
       window.setTimeout(open, 800);
-    }
-
-    if (isHome()) {
-      // HOME: 抑制をリセットして毎回表示
-      try { localStorage.removeItem(STORE_KEY); } catch (e) {}
-      tryShow();
     } else {
-      // 他ページ: 抑制チェック
-      let dismissedAt = 0;
-      try { dismissedAt = parseInt(localStorage.getItem(STORE_KEY) || '0', 10); } catch (e) {}
-      if (!dismissedAt || (Date.now() - dismissedAt) > SUPPRESS_MS) {
-        tryShow();
-      }
+      showFab();
     }
-
-    popup.addEventListener('click', function (e) {
-      const t = e.target;
-      if (t && (t.dataset.bestrateClose === '1' || t.closest('[data-bestrate-close="1"]'))) {
-        close();
-      }
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
-    });
   })();
 
 })();
