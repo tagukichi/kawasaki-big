@@ -3550,3 +3550,7 @@ address {
   width: 100%;
   height: auto;
 }
+/* 館内のご案内（TOP）のアイコンは少し大きめ */
+.s-services .c-section-icon img {
+  max-width: clamp(160px, 26vw, 240px);
+}
