@@ -79,12 +79,16 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
         <div class="s-about__head">
           <h2 class="c-heading js-fade"><?php echo wp_kses_post($about_heading); ?></h2>
           <span class="c-accent-line" aria-hidden="true"></span>
-          <?php if ($about_mascot) : ?>
-          <img src="<?php echo esc_url($about_mascot); ?>" alt="" class="c-mascot c-mascot--sm js-fade" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
-          <?php endif; ?>
         </div>
-        <div class="s-about__body js-fade">
-          <?php echo wp_kses_post($about_body); ?>
+        <div class="s-about__cols">
+          <?php if ($about_mascot) : ?>
+          <div class="s-about__media js-fade">
+            <img src="<?php echo esc_url($about_mascot); ?>" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.style.display='none'" />
+          </div>
+          <?php endif; ?>
+          <div class="s-about__body js-fade">
+            <?php echo wp_kses_post($about_body); ?>
+          </div>
         </div>
       </div>
     </section>

@@ -862,28 +862,38 @@ address {
   background: linear-gradient(to bottom, transparent, var(--color-accent));
 }
 
+/* ABOUT: タイトルを全幅 → その下を「まさお（左）｜本文（右）」の2カラム */
 .s-about__inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-}
-
-@media (min-width: 901px) {
-  .s-about__inner {
-    grid-template-columns: 1fr 1.4fr;
-    gap: 5rem;
-    align-items: start;
-  }
+  display: block;
 }
 
 .s-about__head {
   position: relative;
+  margin-bottom: clamp(1.6rem, 3vw, 2.5rem);
 }
 
-/* about 見出しは1行に収まるよう少し小さめ＆字間を詰める */
-.s-about__head .c-heading {
-  font-size: clamp(1.55rem, 3.2vw, 2.25rem);
-  letter-spacing: .03em;
+.s-about__cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 901px) {
+  .s-about__cols {
+    grid-template-columns: minmax(200px, .8fr) 1.7fr;
+    gap: 4rem;
+  }
+}
+
+.s-about__media { margin: 0; }
+.s-about__media img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+}
+@media (max-width: 900px) {
+  .s-about__media img { max-width: 220px; }
 }
 
 .s-about__body p {
@@ -3383,9 +3393,8 @@ address {
   margin-top: 1.4rem;
 }
 
-/* SP: 見出しとまさおを横並びに配置（s-about__head と s-news__head 共通） */
+/* SP: お知らせ見出しとまさおを横並びに配置 */
 @media (max-width: 600px) {
-  .s-about__head,
   .s-news__head {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -3393,11 +3402,8 @@ address {
     column-gap: 1rem;
     align-items: center;
   }
-  .s-about__head > .c-heading,
   .s-news__head > .c-heading { grid-column: 1; grid-row: 1; }
-  .s-about__head > .c-accent-line,
   .s-news__head > .c-accent-line { grid-column: 1; grid-row: 2; }
-  .s-about__head > .c-mascot--sm,
   .s-news__head > .c-mascot--sm {
     grid-column: 2;
     grid-row: 1 / span 2;
