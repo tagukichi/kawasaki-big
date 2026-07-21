@@ -136,6 +136,15 @@ acf_add_local_field_group([
             'placement' => 'top',
         ],
         [
+            'key' => 'field_kb_services_icon',
+            'label' => '「館内のご案内」見出し上のアイコン画像',
+            'name' => 'services_icon',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '「館内のご案内」の見出し直上に表示。未設定なら何も表示しません。',
+        ],
+        [
             'key' => 'field_kb_services_cards',
             'label' => 'カード',
             'name' => 'services_cards',
@@ -625,6 +634,37 @@ acf_add_local_field_group([
             'return_format' => 'url',
             'preview_size' => 'medium',
             'instructions' => '未設定なら既定画像を表示。',
+        ],
+    ],
+]);
+
+
+/* =========================================================================
+   FIELD GROUP 7: アクセスページ設定
+    location: 固定ページ（スラッグ = access）の編集画面
+   ========================================================================= */
+acf_add_local_field_group([
+    'key' => 'group_kb_access',
+    'title' => 'アクセスページ設定',
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'location' => [
+        [
+            ['param' => 'kb_page_slug', 'operator' => '==', 'value' => 'access'],
+        ],
+    ],
+    'fields' => [
+        [
+            'key' => 'field_kb_access_icon',
+            'label' => '「施設情報」見出し上のアイコン画像',
+            'name' => 'access_icon',
+            'type' => 'image',
+            'return_format' => 'url',
+            'preview_size' => 'medium',
+            'instructions' => '「施設情報」の見出し直上に表示。未設定なら何も表示しません。',
         ],
     ],
 ]);

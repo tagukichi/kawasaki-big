@@ -11,6 +11,7 @@ $kb_default_title = ($kb_page_obj && !empty($kb_page_obj->post_title)) ? $kb_pag
 $hero_bg    = kb_field_image_url('hero_bg', 'IMG_0218.JPG');
 $hero_title = kb_field('hero_title', $kb_default_title);
 $hero_sub   = kb_field('hero_sub', 'JR川崎駅から徒歩3分。京急川崎駅から徒歩5分。');
+$access_icon = kb_field_image_url('access_icon', '');
 ?>
 <section class="s-page-hero" data-section="page-hero" aria-label="ページ見出し">
       <div class="s-page-hero__bg" style="background-image: url('<?php echo esc_url($hero_bg); ?>');" aria-hidden="true"></div>
@@ -30,6 +31,11 @@ $hero_sub   = kb_field('hero_sub', 'JR川崎駅から徒歩3分。京急川崎�
     <!-- ====================== INFO + MAP ====================== -->
     <section class="s-block" data-section="info-map" aria-label="施設情報">
       <div class="l-container">
+        <?php if ($access_icon) : ?>
+        <figure class="c-section-icon js-fade">
+          <img src="<?php echo esc_url($access_icon); ?>" alt="" loading="lazy" decoding="async" />
+        </figure>
+        <?php endif; ?>
         <header class="s-block__head">
           <h2 class="c-heading js-fade">施設情報</h2>
           <span class="c-accent-line" aria-hidden="true"></span>

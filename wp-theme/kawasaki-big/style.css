@@ -3536,3 +3536,17 @@ address {
 @media (prefers-reduced-motion: reduce) {
   .c-reserve-fab { animation: none !important; }
 }
+
+/* =========================================================================
+   セクション見出し上のアイコン画像（ACF）
+   ========================================================================= */
+.c-section-icon {
+  text-align: center;
+  margin: 0 auto clamp(1rem, 2.4vw, 1.8rem);
+}
+.c-section-icon img {
+  display: inline-block;
+  max-width: 120px;
+  width: 100%;
+  height: auto;
+}

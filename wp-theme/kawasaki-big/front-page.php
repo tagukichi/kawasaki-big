@@ -18,6 +18,7 @@ $about_body        = kb_field('about_body', '<p>川崎駅東口から徒歩3分�
 $about_mascot      = kb_field_image_url('about_mascot', 'masaru_02.png');
 $reserve_banner    = kb_field_image_url('reservation_banner_image', 'banner_reserve.png');
 $services          = kb_get_services_cards();
+$services_icon     = kb_field_image_url('services_icon', '');
 $restaurant_head   = kb_field('restaurant_heading', '2F レストラン 24時間営業');
 $restaurant_items  = kb_get_restaurant_items();
 $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
@@ -108,6 +109,11 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
     <!-- ====================== SERVICES (館内のご案内) ====================== -->
     <section class="s-services" data-section="services" aria-label="館内のご案内">
       <div class="l-container">
+        <?php if ($services_icon) : ?>
+        <figure class="c-section-icon js-fade">
+          <img src="<?php echo esc_url($services_icon); ?>" alt="" loading="lazy" decoding="async" />
+        </figure>
+        <?php endif; ?>
         <header class="s-services__head">
           <h2 class="c-heading js-fade">館内のご案内</h2>
           <span class="c-accent-line" aria-hidden="true"></span>
