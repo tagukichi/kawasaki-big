@@ -3554,3 +3554,7 @@ address {
 .s-services .c-section-icon img {
   max-width: clamp(160px, 26vw, 240px);
 }
+/* アクセス「施設情報」のアイコン（建物写真）も大きめ */
+[data-section="info-map"] .c-section-icon img {
+  max-width: clamp(220px, 34vw, 340px);
+}
