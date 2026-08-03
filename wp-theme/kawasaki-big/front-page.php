@@ -51,10 +51,6 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
           </a>
         </div>
         <?php endif; ?>
-        <div class="s-hero__cta js-fade" data-fade-delay="480">
-          <a href="<?php echo kb_reserve_url(); ?>" class="c-btn c-btn--primary c-btn--lg">ご予約はこちら</a>
-          <a href="<?php echo esc_url(home_url('/floor/')); ?>" class="c-btn c-btn--outline c-btn--lg">館内を見る</a>
-        </div>
       </div>
 
       <div class="s-hero__foot" aria-hidden="true">

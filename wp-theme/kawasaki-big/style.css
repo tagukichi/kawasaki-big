@@ -3563,7 +3563,7 @@ address {
    ========================================================================= */
 .s-hero__banner {
   width: min(520px, 100%);
-  margin: 0 auto 1.8rem;
+  margin: 0 auto;
 }
 .s-hero__banner-link {
   display: block;
@@ -3587,6 +3587,5 @@ address {
 @media (max-width: 767px) {
   .s-hero__banner {
     width: min(400px, 100%);
-    margin-bottom: 1.3rem;
   }
 }
