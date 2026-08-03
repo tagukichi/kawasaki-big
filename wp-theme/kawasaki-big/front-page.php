@@ -42,6 +42,15 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
           カプセルホテル × サウナ × レストラン<br />
           都市の真ん中で、心と体をととのえる。
         </p>
+        <?php if ($reserve_banner) : ?>
+        <div class="s-hero__banner js-fade" data-fade-delay="420">
+          <a href="<?php echo kb_reserve_url(); ?>" class="s-hero__banner-link" aria-label="ベストレート保証｜ご予約はコチラから">
+            <img src="<?php echo esc_url($reserve_banner); ?>"
+                 alt="ベストレート保証｜公式サイトからのご予約が一番お得です"
+                 decoding="async" />
+          </a>
+        </div>
+        <?php endif; ?>
         <div class="s-hero__cta js-fade" data-fade-delay="480">
           <a href="<?php echo kb_reserve_url(); ?>" class="c-btn c-btn--primary c-btn--lg">ご予約はこちら</a>
           <a href="<?php echo esc_url(home_url('/floor/')); ?>" class="c-btn c-btn--outline c-btn--lg">館内を見る</a>
