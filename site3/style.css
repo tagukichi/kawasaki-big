@@ -3527,7 +3527,7 @@ address {
    ========================================================================= */
 .s-hero__banner {
   width: min(520px, 100%);
-  margin: 0 auto;
+  margin: .6rem auto 0;
 }
 .s-hero__banner-link {
   display: block;

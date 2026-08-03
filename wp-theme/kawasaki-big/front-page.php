@@ -38,10 +38,6 @@ $news_mascot       = kb_field_image_url('news_mascot', 'masaru_03.png');
           <span class="s-hero__title-line">川崎駅前、</span>
           <span class="s-hero__title-line">24時間の休息</span>
         </h1>
-        <p class="s-hero__sub js-fade" data-fade-delay="320">
-          カプセルホテル × サウナ × レストラン<br />
-          都市の真ん中で、心と体をととのえる。
-        </p>
         <?php if ($reserve_banner) : ?>
         <div class="s-hero__banner js-fade" data-fade-delay="420">
           <a href="<?php echo kb_reserve_url(); ?>" class="s-hero__banner-link" aria-label="ベストレート保証｜ご予約はコチラから">

@@ -3563,7 +3563,7 @@ address {
    ========================================================================= */
 .s-hero__banner {
   width: min(520px, 100%);
-  margin: 0 auto;
+  margin: .6rem auto 0;
 }
 .s-hero__banner-link {
   display: block;
@@ -3588,4 +3588,13 @@ address {
   .s-hero__banner {
     width: min(400px, 100%);
   }
+}
+
+/* =========================================================================
+   WordPress 管理バー表示時の固定ヘッダー位置補正
+   （管理バーの高さぶんヘッダーが隠れ、FVとの間に隙間ができるのを防ぐ）
+   ========================================================================= */
+body.admin-bar .l-header { top: 32px; }
+@media screen and (max-width: 782px) {
+  body.admin-bar .l-header { top: 46px; }
 }
