@@ -3207,10 +3207,7 @@ address {
   }
 }
 
-/* hamburger の auto margin を解除（bestrate が auto を持っているので衝突回避） */
-@media (max-width: 1279px) {
-  .hamburger { margin-left: 0; }
-}
+/* ヘッダーバナーを廃止したため、ハンバーガーは margin-left:auto で右端に配置 */
 
 /* =========================================================================
    PC ベストレート保証 ポップアップ
